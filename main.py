@@ -86,7 +86,7 @@ def home():
     news = News.query.order_by(News.ID.desc()).all()[:5]
     random_picture = choice(Pictures.query.all())
     photofilename = "graphics/" + random_picture.Event + "/" + random_picture.File
-    print(photofilename)
+    # print(photofilename)
     return render_template("index.html", news=news, photo=random_picture, photo_filename=photofilename)
 
 
