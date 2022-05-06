@@ -1,0 +1,196 @@
+<STYLE TYPE="text/css">
+				Table{
+					border: 0;
+					border-spacing : 0px;
+					border-collapse : collapse;
+					font : 12px Arial, Helvetica, sans-serif;
+				}
+				BODY {
+					background-color: #00105F;
+					background-position: right;
+					background-repeat: no-repeat;
+					background-attachment: fixed;
+					margin-left : 0px;
+					font-size: 12px;
+				}
+
+				TD {
+					font : 12px Arial, Helvetica, sans-serif;
+				}
+				.BoxHead {
+					font: 12px Verdana, Geneva, Arial, Helvetica, sans-serif;
+					letter-spacing : 1.5px;
+					color : White;
+					background-color: Maroon;
+					font-weight : bold;
+					left : 100px;
+					text-indent : 5px;
+					border-left : thin ridge Black;
+					border-right : thin ridge Black;
+					border-top : thin ridge Black;
+
+				}
+				.NormTD {
+					font-family : Arial, Helvetica, sans-serif;
+					font-size : 12px;
+				}
+				.bigTD {
+					font-family : Arial, Helvetica, sans-serif;
+					font-size : bold 13px;
+				}
+				.Main{
+					background-color:Gray;
+					border : thick inset Gray;
+					font-family : Arial, Helvetica, sans-serif;
+					font-size : 10px;
+				}
+				.Side {
+					font-family : Arial, Helvetica, sans-serif;
+					font-size : 12px;
+					background-color: #D4D4D4;
+					letter-spacing : 1px;
+					vertical-align : baseline;
+					border-top : thin ridge Silver;
+					border-right : thin ridge Silver;
+					border-left : thin ridge Silver;
+					background : Silver;
+					padding-left : 10px;
+				}
+				.Top {
+					background-color: #00105F;
+					font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+					color: white;
+					letter-spacing: 5px;
+					font-size : 13px;
+					font : 700;
+				}
+				H1
+				{
+					font-family : Arial, Helvetica, sans-serif;
+					font-size : 13px
+				}
+				.title{
+					font : 600 16px;
+					letter-spacing : 1.5px;
+					margin-left : 10px;
+					text-align : left;
+				}
+				.date{
+					font : 300 xx-small;
+					margin-left : 15px;
+					text-align : left;}
+				.divide{border-bottom : thick inset Gray;}
+				.toplink{ color: white;
+					font:600 14px;}
+				.toplink:hover{ color:white;
+					font: 600 14px;}
+				A{ color: #00105F;
+					font: 12px}
+
+				.cal{border : thin solid Black;
+					font-family : Arial, Helvetica, sans-serif;
+					font-size : 10px;}
+				.topcal {
+					font-family : Arial, Helvetica, sans-serif;
+					font-size : 10px;background-color: #D4D4D4;
+					letter-spacing : 1px;
+					vertical-align : baseline;
+					background : Silver;
+					font : 300;	}
+				.calright{border-right : thin double Black;	}
+				.calleft{border-left : thin double Black;}
+				.xl24
+				{font-size:12.0pt;
+					font-weight:700;
+					font-family:Arial, sans-serif;
+					text-align:left;
+					border:.5pt solid windowtext;
+					background:gray;}
+				.xl25
+				{font-family:Arial, sans-serif;
+					text-align:center;
+					vertical-align:middle;
+					border-top:.5pt solid windowtext;
+					border-right:.5pt solid windowtext;
+					border-bottom:.5pt solid windowtext;
+					border-left:.5pt solid windowtext;
+					background:silver;}
+				.xl26
+				{font-size:12.0pt;
+					font-family:"Arial Black", sans-serif;
+					text-align:center;
+					border-top:.5pt solid windowtext;
+					border-bottom:none;
+					border-left:none;
+					background:white;}
+				.xl27
+				{font-family:Arial, sans-serif;
+					text-align:center;
+					border-top:.5pt solid windowtext;;
+					border-right:.5pt solid windowtext;
+					border-bottom:.5pt solid windowtext;
+					border-left:.5pt solid windowtext;
+					background:silver;}
+				.xl28
+				{font-size:12.0pt;
+					font-family:Arial, sans-serif;
+					text-align:center;
+					border-top:none;
+					border-right:.5pt solid windowtext;
+					border-bottom:.5pt solid windowtext;
+					border-left:none;
+					background:gray;}
+				.xl29
+				{font-size:12.0pt;
+					font-family:Arial, sans-serif;
+					text-align:center;
+					border-top:none;
+					border-right:.5pt solid windowtext;
+					border-bottom:.5pt solid windowtext;
+					border-left:none;}
+				.xl30
+				{font-size:12.0pt;
+					font-family:Arial, sans-serif;
+					text-align:center;
+					border-top:.5pt solid windowtext;
+					border-bottom:.5pt solid windowtext;
+					border-left:none;
+					background:white;}
+				.xl31
+				{font-size:12.0pt;
+					font-family:Arial, sans-serif;
+					text-align:center;
+					border-top:none;
+					border-right:.5pt solid windowtext;
+					border-bottom:.5pt solid windowtext;
+					border-left:none;
+					background:white;}
+				.xl32
+				{font-size:14.0pt;
+					font-family:Arial, sans-serif;}
+				.xl33
+				{font-size:12.0pt;
+					font-family:Arial, sans-serif;
+					text-align:center;
+					border-top:.5pt solid windowtext;
+					border-right:.5pt solid windowtext;
+					border-bottom:.5pt solid windowtext;
+					border-left:none;}
+				.xl34
+				{font-size:12.0pt;
+					font-family:Arial, sans-serif;
+					text-align:center;
+					border-top:none;
+					border-right:.5pt solid windowtext;
+					border-bottom:.5pt solid windowtext;
+					border-left:none;}
+				.turd
+				{font-size:12.0pt;
+					font-family:Arial, sans-serif;
+					text-align:center;
+					border-top:.5pt solid windowtext;
+					border-right:.5pt solid windowtext;
+					border-bottom:.5pt solid windowtext;
+					border-left:none;
+					background:white;}
+</STYLE>

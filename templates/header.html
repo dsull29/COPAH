@@ -1,0 +1,34 @@
+<head>
+    <link href="{{ url_for('static', filename='css/copah.css')}}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+
+</head>
+
+<body>
+<table width="765px" border="0" cellspacing="0" cellpadding="0" align="left">
+    <tr>
+        <td colspan=3>
+            <table class=top width="762px" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td class=top colspan="5" align="center">
+                        <img src="{{ url_for('static', filename='banner/Futuristic.gif')}}" border="0" alt="COPAH"
+                             align="bottom"></td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <table class=top>
+                            <tr>
+                                <td><a href="{{url_for('home')}}" class=toplink>Home</a> |</td>
+                                <td><a href="{{ url_for('members') }}" class=toplink>People</a> |</td>
+                                <td><a href="Gallery.asp" class=toplink>Gallery</a> |</td>
+                                <td><a href="{{ url_for('history') }}" class=toplink>History</a></td>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="5"><br></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
