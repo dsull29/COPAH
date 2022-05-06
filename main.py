@@ -78,7 +78,6 @@ class Pictures(db.Model):
     Number = db.Column(db.Integer(), nullable=False)
     ETitle = db.Column(db.String(250), nullable=False)
 
-
 db.create_all()
 
 
