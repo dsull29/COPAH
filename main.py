@@ -72,7 +72,7 @@ class Pictures(db.Model):
     ID = db.Column(db.Integer, primary_key=True)
     Event = db.Column(db.String(100), nullable=False)
     File = db.Column(db.String(100), nullable=False)
-    Comment = db.Column(db.String(100), nullable=False)
+    Comment = db.Column(db.Text)
     Rating = db.Column(db.Integer(), nullable=False)
     Number = db.Column(db.Integer(), nullable=False)
     ETitle = db.Column(db.String(250), nullable=False)
