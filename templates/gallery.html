@@ -16,34 +16,47 @@
                 <td class=boxhead colspan=3>Tournaments</td>
             </tr>
             <tr>
-                <td align="center" width="33%"><img border="1" src="graphics/Tourney2001/number_1_td.jpg"></td>
-                <td align="center" width="33%"><img border="1" src="graphics/FallTourney2001/P1010040_td.jpg"></td>
-                <td align="center" width="33%"><img border="1" src="graphics/Tourney4/T4-19_td.jpg"></td>
+                <td align="center" width="33%"><img border="1"
+                                                    src="{{ url_for('static', filename='graphics/Tourney2001/number_1_td.jpg')}}">
+                </td>
+                <td align="center" width="33%"><img border="1"
+                                                    src="{{ url_for('static', filename='graphics/FallTourney2001/P1010040_td.jpg')}}">
+                </td>
+                <td align="center" width="33%"><img border="1"
+                                                    src="{{ url_for('static', filename='graphics/Tourney4/T4-19_td.jpg')}}">
+                </td>
             <tr>
-                <td align="center" width="33%"><a
-                        href="javascript:newWindow('display.asp?Pic=1&Event=Tourney2001&Title=COPAH 45 Tournament II')"><strong>45
-                    Tournament II</a></strong></td>
-                <td align="center" width="33%"><a
-                        href="javascript:newWindow('display.asp?Pic=1&Event=FallTourney2001&Title=COPAH 45 Tournament III')"><strong>45
-                    Tournament III</a></strong></td>
-                <td align="center" width="33%"><a
-                        href="javascript:newWindow('display.asp?Pic=1&Event=Tourney4&Title=COPAH 45 Tournament IV')"><strong>45
-                    Tournament IV</a></strong></td>
+                <td align="center" width="33%">
+                    <a href="{{ url_for('display', event='Tourney2001', pic=1) }}"><strong>45 Tournament II</strong></a>
+                </td>
+                <td align="center" width="33%">
+                    <a href="{{ url_for('display', event='FallTourney2001', pic=1) }}">
+                        <strong>45 Tournament III</strong>
+                    </a></td>
+                <td align="center" width="33%">
+                    <a href="{{ url_for('display', event='Tourney4', pic=1) }}"><strong>45 Tournament IV</strong></a>
+                </td>
             </tr>
             <tr>
-                <td align="center" width="33%"><img border="1" src="graphics/Tourney5/t5-37_td.jpg"></td>
-                <td align="center" width="33%"><img border="1" src="graphics/Tourney7/tourney7 030_td.jpg"></td>
-                <td align="center" width="33%"><img border="1" src="graphics/Tourney8/32_td.jpg"></td>
+                <td align="center" width="33%"><img border="1"
+                                                    src="{{ url_for('static', filename='graphics/Tourney5/t5-37_td.jpg')}}">
+                </td>
+                <td align="center" width="33%"><img border="1"
+                                                    src="{{ url_for('static', filename='graphics/Tourney7/tourney7 030_td.jpg')}}">
+                </td>
+                <td align="center" width="33%"><img border="1"
+                                                    src="{{ url_for('static', filename='graphics/Tourney8/32_td.jpg')}}">
+                </td>
             <tr>
-                <td align="center" width="33%"><a
-                        href="javascript:newWindow('display.asp?Pic=1&Event=Tourney5&Title=COPAH 45 Tournament V')"><strong>45
-                    Tournament V</a></strong></td>
-                <td align="center" width="33%"><a
-                        href="javascript:newWindow('display.asp?Pic=1&Event=Tourney7&Title=COPAH 45 Tournament VII')"><strong>45
-                    Tournament VII</a></strong></td>
-                <td align="center" width="33%"><a
-                        href="javascript:newWindow('display.asp?Pic=1&Event=Tourney8&Title=COPAH 45 Tournament VIII')"><strong>45
-                    Tournament VIII</a></strong></td>
+                <td align="center" width="33%">
+                    <a href="{{ url_for('display', event='Tourney5', pic=1) }}"><strong>45 Tournament V</strong></a>
+                </td>
+                <td align="center" width="33%">
+                    <a href="{{ url_for('display', event='Tourney7', pic=1) }}"><strong>45 Tournament VII</strong></a>
+                </td>
+                <td align="center" width="33%">
+                    <a href="{{ url_for('display', event='Tourney8', pic=1) }}"><strong>45 Tournament VIII</strong></a>
+                </td>
             </tr>
             <tr>
                 <td><br></td>
@@ -52,43 +65,58 @@
                 <td class=boxhead colspan=3>Karaoke</td>
             </tr>
             <tr>
-                <td align="center" width="33%"><img border="1" src="graphics/Karaoke1/Karaoke1-10_td.jpg"></td>
-                <td align="center" width="33%"><img border="1" src="graphics/Karaoke2/k2_1_td.jpg"></td>
-                <td align="center" width="33%"><img border="1" src="graphics/Karaoke3/K3_17_td.jpg"></td>
+                <td align="center" width="33%"><img border="1"
+                                                    src="{{ url_for('static', filename='graphics/Karaoke1/Karaoke1-10_td.jpg')}}">
+                </td>
+                <td align="center" width="33%"><img border="1"
+                                                    src="{{ url_for('static', filename='graphics/Karaoke2/K2_1_td.jpg')}}">
+                </td>
+                <td align="center" width="33%"><img border="1"
+                                                    src="{{ url_for('static', filename='graphics/Karaoke3/K3_17_td.jpg')}}">
+                </td>
             <tr>
-                <td align="center" width="33%"><a
-                        href="javascript:newWindow('display.asp?Pic=1&Event=Karaoke1&Title=Columbus Day Karaoke')"><strong>Columbus
-                    Day Karaoke</a></strong></td>
-                <td align="center" width="33%"><a
-                        href="javascript:newWindow('display.asp?Pic=1&Event=Karaoke2&Title=Veterans Day Karaoke')"><strong>Veterans
-                    Day Karaoke</a></strong></td>
-                <td align="center" width="33%"><a
-                        href="javascript:newWindow('display.asp?Pic=1&Event=Karaoke3&Title=Thanksgiving Karaoke')"><strong>Thanksgiving
-                    Karaoke</a></strong></td>
+                <td align="center" width="33%">
+                    <a href="{{ url_for('display', event='Karaoke1', pic=1) }}"><strong>Columbus Day
+                        Karaoke</strong></a></td>
+                <td align="center" width="33%">
+                    <a href="{{ url_for('display', event='Karaoke2', pic=1) }}"><strong>Veterans Day
+                        Karaoke</strong></a></td>
+                <td align="center" width="33%">
+                    <a href="{{ url_for('display', event='Karaoke3', pic=1) }}"><strong>Thanksgiving
+                        Karaoke</strong></a></td>
             </tr>
             <tr>
-                <td align="center" width="33%"><img border="1" src="graphics/Karaoke4/xmaskar16_td.jpg"></td>
-                <td align="center" width="33%"><img border="1" src="graphics/Karaoke5/k5-12_td.jpg"></td>
-                <td align="center" width="33%"><img border="1" src="graphics/Karaoke6/K6_17_td.jpg"></td>
+                <td align="center" width="33%"><img border="1"
+                                                    src="{{ url_for('static', filename='graphics/Karaoke4/xmaskar16_td.jpg')}}">
+                </td>
+                <td align="center" width="33%"><img border="1"
+                                                    src="{{ url_for('static', filename='graphics/Karaoke5/k5-12_td.jpg')}}">
+                </td>
+                <td align="center" width="33%"><img border="1"
+                                                    src="{{ url_for('static', filename='graphics/Karaoke6/K6_17_td.jpg')}}">
+                </td>
             <tr>
-                <td align="center" width="33%"><a
-                        href="javascript:newWindow('display.asp?Pic=1&Event=Karaoke4&Title=Christmas Karaoke')"><strong>Christmas
-                    Karaoke</a></strong></td>
-                <td align="center" width="33%"><a
-                        href="javascript:newWindow('display.asp?Pic=1&Event=Karaoke5&Title=Patriots Day Karaoke')"><strong>Patriots
-                    Day Karaoke</a></strong></td>
-                <td align="center" width="33%"><a
-                        href="javascript:newWindow('display.asp?Pic=1&Event=Karaoke6&Title=Memorial Day Karaoke')"><strong>Memorial
-                    Day Karaoke</a></strong></td>
+                <td align="center" width="33%">
+                    <a href="{{ url_for('display', event='Karaoke4', pic=1) }}"><strong>Christmas Karaoke</strong></a>
+                </td>
+                <td align="center" width="33%">
+                    <a href="{{ url_for('display', event='Karaoke5', pic=1) }}"><strong>Patriots Day
+                        Karaoke</strong></a></td>
+                <td align="center" width="33%">
+                    <a href="{{ url_for('display', event='Karaoke6', pic=1) }}"><strong>Memorial Day
+                        Karaoke</strong></a></td>
             </tr>
             <tr>
                 <td><br></td>
-                <td align="center" width="33%"><img border="1" src="graphics/Karaoke7/karaoke7 003_td.jpg"></td>
+                <td align="center" width="33%"><img border="1"
+                                                    src="{{ url_for('static', filename='graphics/Karaoke7/karaoke7 003_td.jpg')}}">
+                </td>
             <tr>
                 <td><br></td>
-                <td align="center" width="33%"><a
-                        href="javascript:newWindow('display.asp?Pic=1&Event=Karaoke7&Title=Labor Day Karaoke')"><strong>Labor
-                    Day Karaoke</strong></td>
+
+                <td align="center" width="33%">
+                    <a href="{{ url_for('display', event='Karaoke7', pic=1) }}"><strong>Labor Day Karaoke</strong></a>
+                </td>
             <tr>
                 <td><br></td>
             </tr>
@@ -96,29 +124,37 @@
                 <td class=boxhead colspan=3>Outings</td>
             </tr>
             <tr>
-                <td align="center" width="33%"><img border="1" src="graphics/Luncheon/Luncheon1_td.jpg"></td>
-                <td align="center" width="33%"><img border="1" src="graphics/NYE2001/nye11_td.jpg"></td>
-                <td align="center" width="33%"><img border="1" src="graphics/SerpaWed/SW07_td.jpg"></td>
+                <td align="center" width="33%"><img border="1"
+                                                    src="{{ url_for('static', filename='graphics/Luncheon/Luncheon1_td.jpg')}}">
+                </td>
+                <td align="center" width="33%"><img border="1"
+                                                    src="{{ url_for('static', filename='graphics/NYE2001/nye11_td.jpg')}}">
+                </td>
+                <td align="center" width="33%"><img border="1"
+                                                    src="{{ url_for('static', filename='graphics/SerpaWed/SW07_td.jpg')}}">
+                </td>
             <tr>
-                <td align="center" width="33%"><a
-                        href="javascript:newWindow('display.asp?Pic=1&Event=Luncheon&Title=The Innaugural C.O.P.A.H. Luncheon')"><strong>Luncheon
-                    2000</a></strong></td>
-                <td align="center" width="33%"><a
-                        href="javascript:newWindow('display.asp?Pic=1&Event=NYE2001&Title=New Years Eve')"><strong>New
-                    Years Eve 2001</strong></td>
-                <td align="center" width="33%"><a
-                        href="javascript:newWindow('display.asp?Pic=1&Event=SerpaWed&Title=The Serpa Wedding')"><strong>The
-                    Serpa Wedding</a></strong></td>
+                <td align="center" width="33%">
+                    <a href="{{ url_for('display', event='Luncheon', pic=1) }}"><strong>Luncheon 2000</strong></a></td>
+                <td align="center" width="33%">
+                    <a href="{{ url_for('display', event='NYE2001', pic=1) }}"><strong>New Years Eve 2001</strong></a>
+                </td>
+                <td align="center" width="33%">
+                    <a href="{{ url_for('display', event='SerpaWed', pic=1) }}"><strong>The Serpa Wedding</strong></a>
+                </td>
             <tr>
-                <td align="center" width="33%"><img border="1" src="graphics/Luau/luau07_td.jpg"></td>
-                <td align="center" width="33%"><img border="1" src="graphics/MardiGras/mg028_td.jpg"></td>
+                <td align="center" width="33%"><img border="1"
+                                                    src="{{ url_for('static', filename='graphics/Luau/luau07_td.jpg')}}">
+                </td>
+                <td align="center" width="33%"><img border="1"
+                                                    src="{{ url_for('static', filename='graphics/MardiGras/mg028_td.jpg')}}">
+                </td>
             <tr>
-                <td align="center" width="33%"><a
-                        href="javascript:newWindow('display.asp?Pic=1&Event=Luau&Title=COPAH Luau 2002')"><strong>Luau
-                    2002</a></strong></td>
-                <td align="center" width="33%"><a
-                        href="javascript:newWindow('display.asp?Pic=1&Event=MardiGras&Title=Mardi Gras 2003')"><strong>Mardi
-                    Gras 2003</a></strong></td>
+                <td align="center" width="33%">
+                    <a href="{{ url_for('display', event='Luau', pic=1) }}"><strong>Luau 2002</strong></a></td>
+                <td align="center" width="33%">
+                    <a href="{{ url_for('display', event='MardiGras', pic=1) }}"><strong>Mardi Gras 2003</strong></a>
+                </td>
 
         </table>
         </table>

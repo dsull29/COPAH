@@ -27,7 +27,9 @@
             <tr>
                 <td class="Side"><a href="{{ url_for('tournaments') }}">Tournament Recaps</a><br>
                     <a href="{{ url_for('rankings') }}">Rankings</a><br>
+                    <a href="https://dsull29.github.io/45s/">Play 45</a><em>(new)</em><br>
                     <a href="{{ url_for('rules_of_45') }}">Rules</a><br>&nbsp;
+
                 </td>
             </tr>
             <tr>
@@ -37,11 +39,11 @@
                 <td class=boxhead>Events</td>
             </tr>
             <tr>
-                <td class=Side><a href="happening.asp">Happenings</a><br>
-                    <a href="karaoke.asp">Karaoke</a><br>
-                    <a href="luau.asp">Luau</a><br>
-                    <a href="mardigras.asp">Mardi Gras</a><br>
-                    <a href="fiesta.asp"><b>Fiesta</b></a><br>&nbsp;
+                <td class=Side><a href="{{ url_for('happenings') }}">Happenings</a><br>
+                    <a href="{{ url_for('karaoke') }}">Karaoke</a><br>
+                    <a href="{{ url_for('luau') }}">Luau</a><br>
+                    <a href="{{ url_for('mardigras') }}">Mardi Gras</a><br>
+                    <a href="{{ url_for('fiesta') }}">Fiesta</a><br>&nbsp;
                 </td>
             </tr>
             <tr>

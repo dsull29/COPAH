@@ -1,0 +1,53 @@
+<html>
+<head>
+    <link href="{{ url_for('static', filename='css/copah.css')}}" rel="stylesheet">
+    <title>
+        {{ title }}
+    </title>
+
+</head>
+
+<body marginheight="0" marginwidth="0">
+<table align="center" bgcolor="white" valign="top">
+    <tr>
+        <th align="center" class="boxhead" colspan="2">{{ title }}</th>
+    </tr>
+    <tr>
+        <td align="center" colspan="2">
+            <table align="center" border="1">
+                <tr height="340">
+                    <td align="center" width="340">
+                        <img alt="" border="0" src="{{ url_for('static', filename=filename) }}">
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td align="center" colspan="2" height="50" valign="top">
+            {{ comment }}
+        </td>
+    </tr>
+
+    <tr valign="baseline">
+        {% if pic==1: %}
+        <td><br></td>
+        {% else %}
+        <td align="right" width="50%">
+            <a href="{{ url_for('display', event=event, pic=1) }}">First</a>&nbsp;&nbsp;
+            <a href="{{ url_for('display', event=event, pic=prior) }}">Previous</a>&nbsp;
+        </td>
+        {% endif %}
+        {% if last == pic: %}
+        <td><br></td>
+        {% else: %}
+        <td width="50%">
+            <a href="{{ url_for('display', event=event, pic=next) }}">Next</a>&nbsp;&nbsp;
+            <a href="{{ url_for('display', event=event, pic=last) }}">Last</a>
+        </td>
+        {% endif %}
+    </tr>
+</table>
+
+</body>
+</html>

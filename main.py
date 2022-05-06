@@ -155,5 +155,60 @@ def links():
     return render_template("links.html")
 
 
+@app.route('/happenings')
+def happenings():
+    return render_template("happenings.html")
+
+
+@app.route('/display/<event>/<pic>')
+def display(event, pic):
+    picture = Pictures.query.filter_by(Number=pic, Event=event).first()
+    if picture:
+        comment = picture.Comment
+        filename = "/graphics/" + event + "/" + picture.File
+        title = picture.ETitle
+        next = int(pic) + 1
+        prior = int(pic) - 1
+        last = len(Pictures.query.filter_by(Event=event).all())
+        return render_template("display.html", event=event, title=title, comment=comment, filename=filename, next=next,
+                               prior=prior, last=last, pic=int(pic))
+    return abort(404)
+
+
+@app.route('/karaoke')
+def karaoke():
+    return render_template("karaoke.html")
+
+
+@app.route('/luau')
+def luau():
+    return render_template("luau.html")
+
+
+@app.route('/fiesta')
+def fiesta():
+    return render_template("fiesta.html")
+
+
+@app.route('/mardigras')
+def mardigras():
+    return render_template("mardigras.html")
+
+
+@app.route('/fiestalist')
+def fiestalist():
+    return render_template("fiestalist.html")
+
+
+@app.route('/luaumusic')
+def luaumusic():
+    return render_template("luaumusic.html")
+
+
+@app.route('/mardigraslist')
+def mardigraslist():
+    return render_template("mardigraslist.html")
+
+
 if __name__ == "__main__":
     app.run(host='127.0.0.33', port=5000, debug=True)

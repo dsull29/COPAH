@@ -51,24 +51,27 @@
                         <tr>
                             <td align="right"><strong>Pictures:</strong></td>
                             <td>
-                                <a href="javascript:newWindow('display.asp?Pic=1&Event=Tourney2001&Title=COPAH 45 Tournament II')">45
+                                <a href="{{ url_for('display', event='Tourney2001', pic=1) }}" target="_blank">45
                                     Tourney II</a></td>
+                            -->
                         </tr>
                         <tr>
                             <td align="right"><strong>Player Rankings:</strong></td>
                             <td><a href="rank2.asp">Post Tournament II</a></td>
                         </tr>
                     </table>
-                <td align="center" width="25%"><img src="graphics/Tourney2001/number_1.jpg" width="70%"><br>The Winners:
+                <td align="center" width="25%"><img
+                        src="{{ url_for('static', filename='graphics/Tourney2001/Number_1.jpg')}}" width="70%"><br>The
+                    Winners:
                     Phipps and Keith
                 </td>
             </tr>
 
             <tr>
-                <td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;After months of tireless planning and replanning and
-                    rereplanning and so on and so fourth the 2001 Innnovational COPAH 45 Tournament finally took place
+                <td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;After months of tireless planning and re-planning and
+                    re-re-planning and so on and so forth the 2001 Invitational COPAH 45 Tournament finally took place
                     on June 21st, 2001. We used a table format which proved to work all right. <i>(below you can find
-                        the table</i> The orginal plans said that in the event of a tie the team with the highest point
+                        the table</i> The original plans said that in the event of a tie the team with the highest point
                     differential would be the winner but Tom and Ave chose not to have it that way. While it may have
                     been the admirable thing to do the result could not have been worse for them. Phipps and Keith
                     squashed Tom and Ave in about 20 minutes flat.
