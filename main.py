@@ -66,6 +66,7 @@ class Members(db.Model):
     Guests = db.Column(db.Integer())
     CN = db.Column(db.String(250))
 
+
 class Pictures(db.Model):
     __tablename__ = "pictures"
     ID = db.Column(db.Integer, primary_key=True)
@@ -75,6 +76,10 @@ class Pictures(db.Model):
     Rating = db.Column(db.Integer(), nullable=False)
     Number = db.Column(db.Integer(), nullable=False)
     ETitle = db.Column(db.String(250), nullable=False)
+
+
+db.create_all()
+
 
 @app.route('/')
 def home():
@@ -112,4 +117,4 @@ def history3():
 
 
 if __name__ == "__main__":
-    app.run(host='127.0.0.29', port=5000, debug=True)
+    app.run(host='127.0.0.33', port=5000, debug=True)
