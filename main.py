@@ -7,6 +7,7 @@ from sqlalchemy.orm import relationship
 from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user
 from random import choice
 import os
+import requests
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
@@ -114,6 +115,44 @@ def history2():
 @app.route('/history3')
 def history3():
     return render_template("history3.html")
+
+
+@app.route('/archives')
+def archives():
+    news = News.query.order_by(News.ID.desc()).all()
+    return render_template("index.html", news=news)
+
+
+@app.route('/gallery')
+def gallery():
+    return render_template("gallery.html")
+
+
+@app.route('/tournaments')
+def tournaments():
+    return render_template("tournaments.html")
+
+
+@app.route('/tournament/<int:tourney_id>')
+def tournament_detail(tourney_id):
+    num = str(tourney_id)
+    page = "tourney" + num + ".html"
+    return render_template(page)
+
+
+@app.route('/rankings')
+def rankings():
+    return render_template("rankings.html")
+
+
+@app.route('/rulesof45')
+def rules_of_45():
+    return render_template("rulesof45.html")
+
+
+@app.route('/links')
+def links():
+    return render_template("links.html")
 
 
 if __name__ == "__main__":

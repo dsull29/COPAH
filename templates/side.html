@@ -1,33 +1,33 @@
 <tr>
     <td width="180px" valign="top">
         <table width="178px" cellspacing="0" cellpadding="0" border="0">
-            <tr>
-                <td class=boxhead>Members</td>
-            </tr>
-            <tr>
-                <td class=Side><!-- #INCLUDE file="signin.asp"--></td>
-            </tr>
-            <tr>
-                <td><br></td>
-            </tr>
-            <tr>
-                <td class="boxhead">Calendar</td>
-            </tr>
-            <tr>
-                <td class="Side"><!-- #INCLUDE file="calendar_v1.asp" -->
-                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>&nbsp;
-                </td>
-            </tr>
-            <tr>
-                <td><br></td>
-            </tr>
+            <!--            <tr>-->
+            <!--                <td class=boxhead>Members</td>-->
+            <!--            </tr>-->
+            <!--            <tr>-->
+            <!--                <td class=Side>&lt;!&ndash; #INCLUDE file="signin.asp"&ndash;&gt;</td>-->
+            <!--            </tr>-->
+            <!--            <tr>-->
+            <!--                <td><br></td>-->
+            <!--            </tr>-->
+            <!--            <tr>-->
+            <!--                <td class="boxhead">Calendar</td>-->
+            <!--            </tr>-->
+            <!--            <tr>-->
+            <!--                <td class="Side">&lt;!&ndash; #INCLUDE file="calendar_v1.asp" &ndash;&gt;-->
+            <!--                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>&nbsp;-->
+            <!--                </td>-->
+            <!--            </tr>-->
+            <!--            <tr>-->
+            <!--                <td><br></td>-->
+            <!--            </tr>-->
             <tr>
                 <td class="boxhead">'45' Dealings</td>
             </tr>
             <tr>
-                <td class="Side"><a href="tournaments.asp">Tournament Recaps</a><br>
-                    <a href="rankings.asp">Rankings</a><br>
-                    <a href="rulesof45.asp">Rules</a><br>&nbsp;
+                <td class="Side"><a href="{{ url_for('tournaments') }}">Tournament Recaps</a><br>
+                    <a href="{{ url_for('rankings') }}">Rankings</a><br>
+                    <a href="{{ url_for('rules_of_45') }}">Rules</a><br>&nbsp;
                 </td>
             </tr>
             <tr>
@@ -65,9 +65,9 @@
                 <td class=boxhead>Time Killers</td>
             </tr>
             <tr>
-                <td class=Side><a href="listlist.asp">Top 10 Lists</a><br>
-                    <a href="http://www.walkingdead.net/perl/euphemism" target="_base">Euphemism Generator</a><br>
-                    <a href="link.asp">Links</a><br>&nbsp;
+                <td class=Side>
+                    <!--                    <a href="listlist.asp">Top 10 Lists</a><br>-->
+                    <a href="{{ url_for('links') }}">Links</a><br>&nbsp;
                 </td>
             </tr>
 
