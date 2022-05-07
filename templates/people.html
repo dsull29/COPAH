@@ -1,34 +1,45 @@
 <html>
 <head>
-	<title>C.O.P.A.H. People</title>
+    <title>C.O.P.A.H. People</title>
 
     {% include "header.html" %}
     {% include "side.html" %}
 
-<td width="62%" class=main align="center" valign="top">
-   <table width="90%" cellspacing="0" cellpadding="0"><tr><td class=title>People</td></tr>
-<!-- <tr><td class=date>Last Updated: May 31st, 2002 | Visitor <%=session("counter")%></td></tr>-->
-	</table>
-	<table width="96%" bgcolor="#FFFFFF" cellspacing="3" cellpadding="2">
+    <td align="center" class=main valign="top" width="62%">
+        <table cellpadding="0" cellspacing="0" width="90%">
+            <tr>
+                <td class=title>People</td>
+            </tr>
+            <!-- <tr><td class=date>Last Updated: May 31st, 2002 | Visitor <%=session("counter")%></td></tr>-->
+        </table>
+        <table bgcolor="#FFFFFF" cellpadding="2" cellspacing="3" width="96%">
 
 
-        <tr><td colspan="4" class=boxhead>Members</td></tr><tr>
-<tr><td colspan="4">The original members, the late comers to UMass Dartmouth, and the good friends who earned it.  These are the illustrious members of C.O.P.A.H. who like it or not will forever be associated with the rest of us.</td></tr>
-{% for member in members %}
-     <td width="25%">
-       <a href="{{url_for('show_member', AKA=member.AKA) }}">{{ member.AKA }}</a></td>
-   </tr><tr>
-{% endfor %}
+            <tr>
+                <td class=boxhead colspan="4">Members</td>
+            </tr>
+            <tr>
+            <tr>
+                <td colspan="4">The original members, the late comers to UMass Dartmouth, and the good friends who
+                    earned it. These are the illustrious members of C.O.P.A.H. who like it or not will forever be
+                    associated with the rest of us.
+                </td>
+            </tr>
+            {% for member in members %}
+            <td width="25%">
+                <a href="{{url_for('show_member', AKA=member.AKA) }}">{{ member.AKA }}</a></td>
+            </tr>
+            <tr>
+                {% endfor %}
 
 
+                </td></tr>
+        </table>
+        </table>
 
-</td></tr>
-</table>
-	</table>
-
-	</td>
-</tr>
+    </td>
+    </tr>
 
 
-</body>
+    </body>
 </html>

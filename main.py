@@ -97,9 +97,11 @@ def members():
     return render_template("people.html", members=members)
 
 
-@app.route('/member')
-def show_member():
-    return abort(404)
+@app.route('/member/<AKA>')
+def show_member(AKA):
+    member = Members.query.get(AKA)
+    print(member)
+    return render_template("member_profile.html", member=member)
 
 
 @app.route('/history')
@@ -231,4 +233,4 @@ def tnt():
 
 
 if __name__ == "__main__":
-    app.run(host='127.0.0.33', port=5000, debug=True)
+    app.run(host='127.0.0.29', port=5000, debug=True)

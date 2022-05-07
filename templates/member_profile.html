@@ -1,0 +1,297 @@
+<html>
+<head>
+    <title>C.O.P.A.H. People\Profiles</title>
+    {% include "header.html" %}
+    {% include "side.html" %}
+
+    <td align="center" class=main valign="top" width="62%">
+        <table cellpadding="0" cellspacing="0" width="90%">
+            <tr>
+                <td class=title><br></td>
+            </tr>
+            <!-- <tr><td class=date>Last Updated: May 31st, 2002 | Visitor <%=session("counter")%></td></tr>-->
+        </table>
+        <table bgcolor="#FFFFFF" cellpadding="2" cellspacing="3" width="96%">
+
+            <tr>
+                <th class=boxhead colspan="5">{{ member.AKA }}</th>
+            </tr>
+            <tr>
+                <td>
+                    <table border="0" width="100%">
+                        <tr>
+                            {% if member.Picture: %}
+                            <td align="center"><img src="{{url_for('static', filename='graphics/' + member.Picture)}}">
+                            </td>
+                            {% endif %}
+                        </tr>
+                        <tr>
+                            <td>
+                                <table border=0 width="100%">
+                                    <tr>
+                                        <td class=boxhead colspan="4">Vital Statistics</td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right">Name:</td>
+                                        <td>{{ member.FirstName}}&nbsp;{{ member.LastName}}</td>
+                                        {% if member.Birthday: %}
+                                        <td align="right">Birthday:</td>
+                                        <td>{{ member.Birthday }}</td>
+                                        {% endif %}
+                                    </tr>
+                                    {% if member.Major: %}
+                                    <tr>
+                                        <td align="right">Major:</td>
+                                        <td>{{ member.Major }}</td>
+                                    </tr>
+                                    {% endif %}
+                                    {% if member %}
+                                    {% if member.Address or member.City or member.State or member.Zip: %}
+                                    <tr>
+                                        <td align="right" valign="top">Address:</td>
+                                        <td>{% if member.Address: %}
+                                            {{ member.Address }}<br>
+                                            {% endif %}
+                                            {% if member.Address2: %}
+                                            {{ member.Address2 }}<br>
+                                            {% endif %}
+                                            {% if member.City: %}
+                                            {{ member.City }}
+                                            {% endif %}
+                                            {% if member.State: %}
+                                            &nbsp;{{ member.State }}
+                                            {% endif %}
+                                            {% if member.Zip: %}
+                                            &nbsp;{{ member.Zip }}
+                                        </td>
+                                    </tr>
+                                    {% else: %}
+                                    </td></tr>
+                                    {% endif %}
+                                    {% endif %}
+                                    {% if member.Homephone: %}
+                                    </td></tr>
+                                    <tr>
+                                        <td align="right">Home&nbsp;Phone&nbsp;Number:</td>
+                                        <td>{{ member.HomePhone }}</td>
+                                    </tr>
+                                    {% endif %}
+                                    {% if member.Cellphone: %}
+                                    </td></tr>
+                                    <tr>
+                                        <td align="right">Cell&nbsp;Phone&nbsp;Number:</td>
+                                        <td>{{ member.CellPhone }}</td>
+                                    </tr>
+                                    {% endif %}
+                                    <tr>
+                                        <td align="right">E-Mail:</td>
+                                        {% if member.Email == "none": %}
+                                        <td>No Email Address</td>
+                                        {% else: %}
+                                        <td><a href="mailto:{{ member.EMail }}">{{ member.EMail }}</a></td>
+                                        {% endif %}
+                                    </tr>
+                                    {% endif %}
+                                    {% if member.Work: %}
+                                    <tr>
+                                        <td align="right">Work:</td>
+                                        <td>{{ member.Work }}</td>
+                                        {% endif %}
+
+                                        {% if member.WebSiteURL: %}
+                                    <tr>
+                                        <td align="right">Web Site:</td>
+                                        <td><a href="{{ member.WebSiteURL }}" target="_blank">{{ member.WebSiteName
+                                            }}</a></td>
+                                    </tr>
+                                    {% endif %}
+                                    <tr>
+                                        <td><br><br></td>
+                                    </tr>
+                                    <!--                                    <% if myRS("football") or myRS("hockey") or myRS("baseball") or myRS("basketball") =-->
+                                    <!--                                    True then %>-->
+                                    <!--                                    <tr>-->
+                                    <!--                                        <td colspan="4">-->
+                                    <!--                                            <table width="100%">-->
+                                    <!--                                                <tr>-->
+                                    <!--                                                    <td class=boxhead colspan="4">Fantasy Sports</td>-->
+                                    <!--                                                </tr>-->
+                                    <!--                                                <% if myRS("football")= True then-->
+                                    <!--                                                set footRS=server.createobject("ADODB.Recordset")-->
+                                    <!--                                                footRS.Open "SELECT owner,teamname,rank FROM FootballRecord2001 WHERE-->
+                                    <!--                                                Owner LIKE '" & myRS("owner") & "';", myConn-->
+                                    <!--                                                if footRS.EOF then %>-->
+                                    <!--                                                <% else %>-->
+                                    <!--                                                <tr>-->
+                                    <!--                                                    <td align="right"><a href="sports/eFootball.asp">Fantasy Football-->
+                                    <!--                                                        2001</a>:-->
+                                    <!--                                                    </td>-->
+                                    <!--                                                    <td><a href="sports/footballteam.asp?AKA=<%=myRS(" owner")%>&Name=<%=footRS("teamname")%>"><%=footRS("teamname")%></a>-->
+                                    <!--                                                    </td>-->
+                                    <!--                                                    <td align="right">Finished:</td>-->
+                                    <!--                                                    <td><%=footRS("rank")%></td>-->
+                                    <!--                                                </tr>-->
+                                    <!--                                                <% end if-->
+                                    <!--                                                set foot02RS=server.createobject("ADODB.Recordset")-->
+                                    <!--                                                foot02RS.Open "SELECT owner,teamname,rank FROM FootballRecord2002 WHERE-->
+                                    <!--                                                Owner LIKE '" & myRS("owner") & "';", myConn-->
+                                    <!--                                                if foot02RS.eof then %>-->
+                                    <!--                                                <% else %>-->
+                                    <!--                                                <tr>-->
+                                    <!--                                                    <td align="right"><a href="sports/eFootball.asp">Fantasy Football-->
+                                    <!--                                                        2002</a>:-->
+                                    <!--                                                    </td>-->
+                                    <!--                                                    <td><a href="sports/footballteam.asp?AKA=<%=myRS(" owner")%>&Name=<%=foot02RS("teamname")%>"><%=foot02RS("teamname")%></a>-->
+                                    <!--                                                    </td>-->
+                                    <!--                                                    <td align="right">Finished:</td>-->
+                                    <!--                                                    <td><%=foot02RS("rank")%></td>-->
+                                    <!--                                                </tr>-->
+                                    <!--                                                <% end if %>-->
+                                    <!--                                                <% end if %>-->
+                                    <!--                                                <% if myrs("hockey")= True then-->
+                                    <!--                                                set hockRS=server.createobject("ADODB.Recordset")-->
+                                    <!--                                                hockRS.Open "SELECT owner,teamname,rank FROM HockeyRecord2001 WHERE-->
+                                    <!--                                                Owner LIKE '" & myRS("owner") & "';", myConn%>-->
+                                    <!--                                                <tr>-->
+                                    <!--                                                    <td align="right"><a href="sports/eHockey.asp">Fantasy Hockey</a>:-->
+                                    <!--                                                    </td>-->
+                                    <!--                                                    <td><a href="sports/hockeyteam.asp?AKA=<%=hockRS(" owner")%>&Name=<%=hockRS("teamname")%>"><%=hockRS("teamname")%></a>-->
+                                    <!--                                                    </td>-->
+                                    <!--                                                    <td align="right">Finished:</td>-->
+                                    <!--                                                    <td> <%=hockRS("rank")%></td>-->
+                                    <!--                                                </tr>-->
+                                    <!--                                                <% end if %>-->
+                                    <!--                                                <% if myrs("basketball") = True then-->
+                                    <!--                                                set NBARS=server.createobject("ADODB.Recordset")-->
+                                    <!--                                                NBARS.Open "SELECT owner,teamname,rank FROM BasketballRecord2001 WHERE-->
+                                    <!--                                                Owner LIKE '" & myRS("owner") & "';", myConn %>-->
+                                    <!--                                                <tr>-->
+                                    <!--                                                    <td align="right"><a href="sports/eBasketball.asp">Fantasy-->
+                                    <!--                                                        Basketball</a>:-->
+                                    <!--                                                    </td>-->
+                                    <!--                                                    <td><a href="sports/NBAteam.asp?AKA=<%=NBARS(" owner")%>&Name=<%=NBARS("teamname")%>"><%=NBARS("teamname")%></a>-->
+                                    <!--                                                    </td>-->
+                                    <!--                                                    <td align="right">Finished:</td>-->
+                                    <!--                                                    <td><%=NBARS("rank")%></td>-->
+                                    <!--                                                </tr>-->
+                                    <!--                                                <% end if %>-->
+                                    <!--                                                <% if myrs("baseball") = True then-->
+                                    <!--                                                set baseRS=server.createobject("ADODB.Recordset")-->
+                                    <!--                                                baseRS.Open "SELECT owner,teamname,rank FROM BaseballRecord2002 WHERE-->
+                                    <!--                                                Owner LIKE '" & myRS("owner") & "';", myConn%>-->
+                                    <!--                                                <tr>-->
+                                    <!--                                                    <td align="right"><a href="sports/eBaseball.asp?O=PER">Fantasy-->
+                                    <!--                                                        Baseball</a>:-->
+                                    <!--                                                    </td>-->
+                                    <!--                                                    <td><a href="sports/MLBteam.asp?AKA=<%=baseRS(" owner")%>&Name=<%=baseRS("teamname")%>"><%=baseRS("teamname")%></a>-->
+                                    <!--                                                    </td>-->
+                                    <!--                                                    <td align="right">Ranked:</td>-->
+                                    <!--                                                    <td><%=baseRS("rank")%></td>-->
+                                    <!--                                                </tr>-->
+                                    <!--                                                <% end if %>-->
+                                    <!--                                            </table>-->
+                                    <!--                                        </td>-->
+                                    <!--                                    </tr>-->
+                                    <!--                                    <tr>-->
+                                    <!--                                        <td><br></td>-->
+                                    <!--                                    </tr>-->
+                                    <!--                                    <% end if%>-->
+                                    <!--                                    <% set tRS=server.createobject("ADODB.Recordset")-->
+                                    <!--                                    tRS.Open "SELECT * FROM Rank WHERE AKA = '" & myRS("AKA") & "';", myConn-->
+                                    <!--                                    if tRS("Active")=True then%>-->
+
+                                    <!--                                    <tr>-->
+                                    <!--                                        <td colspan=4>-->
+                                    <!--                                            <table width="100%">-->
+                                    <!--                                                <tr>-->
+                                    <!--                                                    <td class=boxhead colspan=2>45 Stats</td>-->
+                                    <!--                                                </tr>-->
+                                    <!--                                                <tr>-->
+                                    <!--                                                    <td align="center" colspan=2>Currently ranked #<%= tRS("current")%>-->
+                                    <!--                                                        out of 32 in <a href="rankings.asp">45 Tournaments</a></td>-->
+                                    <!--                                                </tr>-->
+                                    <!--                                                <% if myRS("aka") = "Phipps" or myRS("aka") = "Keith" then %>-->
+                                    <!--                                                <tr>-->
+                                    <!--                                                    <td align="right"><a href="tourney2.asp">Tourney II</a>:</td>-->
+                                    <!--                                                    <td>Champion</td>-->
+                                    <!--                                                </tr>-->
+                                    <!--                                                <tr>-->
+                                    <!--                                                    <td align="right"><a href="tourney3.asp">Tourney III</a>:</td>-->
+                                    <!--                                                    <td>Champion</td>-->
+                                    <!--                                                </tr>-->
+                                    <!--                                                <% end if %>-->
+                                    <!--                                                <% if myRS("aka") = "Scrib" or myRS("aka") = "Tim" then %>-->
+                                    <!--                                                <tr>-->
+                                    <!--                                                    <td align="right"><a href="tourney1.asp">Tourney I</a>:</td>-->
+                                    <!--                                                    <td>Champion</td>-->
+                                    <!--                                                </tr>-->
+                                    <!--                                                <% end if %>-->
+                                    <!--                                                <% if myRS("aka") = "Joe" or myRS("aka") = "Oakley" then %>-->
+                                    <!--                                                <tr>-->
+                                    <!--                                                    <td align="right"><a href="tourney4.asp">Tourney IV</a>:</td>-->
+                                    <!--                                                    <td>Champion</td>-->
+                                    <!--                                                </tr>-->
+                                    <!--                                                <% end if %>-->
+                                    <!--                                                <% if myRS("aka") = "Tom" or myRS("aka") = "Mikey" then %>-->
+                                    <!--                                                <tr>-->
+                                    <!--                                                    <td align="right"><a href="tourney5.asp">Tourney V</a>:</td>-->
+                                    <!--                                                    <td>Champion</td>-->
+                                    <!--                                                </tr>-->
+                                    <!--                                                <% end if %>-->
+                                    <!--                                                <% if myRS("aka") = "Dave" or myRS("aka") = "Moles" then %>-->
+                                    <!--                                                <tr>-->
+                                    <!--                                                    <td align="right"><a href="tourney1.asp">Tourney I</a>:</td>-->
+                                    <!--                                                    <td>Runner-Up</td>-->
+                                    <!--                                                </tr>-->
+                                    <!--                                                <% end if %>-->
+                                    <!--                                                <% if myRS("aka") = "Jay-Ave" or myRS("aka") = "Tom" then %>-->
+                                    <!--                                                <tr>-->
+                                    <!--                                                    <td align="right"><a href="tourney2.asp">Tourney II</a>:</td>-->
+                                    <!--                                                    <td>Runner-Up</td>-->
+                                    <!--                                                </tr>-->
+                                    <!--                                                <% end if %>-->
+                                    <!--                                                <% if myRS("aka") = "Seth" or myRS("aka") = "Billy" then %>-->
+                                    <!--                                                <tr>-->
+                                    <!--                                                    <td align="right"><a href="tourney3.asp">Tourney III</a>:</td>-->
+                                    <!--                                                    <td>Runner-Up</td>-->
+                                    <!--                                                </tr>-->
+                                    <!--                                                <% end if %>-->
+                                    <!--                                                <% if myRS("aka") = "Becky" or myRS("aka") = "Sandy" then %>-->
+                                    <!--                                                <tr>-->
+                                    <!--                                                    <td align="right"><a href="tourney4.asp">Tourney IV</a>:</td>-->
+                                    <!--                                                    <td>Runner-Up</td>-->
+                                    <!--                                                </tr>-->
+                                    <!--                                                <% end if %>-->
+                                    <!--                                                <% if myRS("aka") = "Billy" or myRS("aka") = "Nick" then %>-->
+                                    <!--                                                <tr>-->
+                                    <!--                                                    <td align="right"><a href="tourney5.asp">Tourney V</a>:</td>-->
+                                    <!--                                                    <td>Runner-Up</td>-->
+                                    <!--                                                </tr>-->
+                                    <!--                                                <% end if %>-->
+
+                                    <!--                                            </table>-->
+                                    <!--                                        </td>-->
+                                    <!--                                    </tr>-->
+                                    <!--                                    <% end if %>-->
+
+
+                                </table>
+
+                        <tr>
+                            <td colspan="4"><br></td>
+                        </tr>
+
+                        <tr>
+                            <td align="center" colspan="4"><a href="{{ url_for('members') }}">Return to People</a></td>
+                        </tr>
+
+                        </td></tr>
+                    </table>
+        </table>
+
+    </td>
+    </tr>
+
+
+    </body>
+</html>
