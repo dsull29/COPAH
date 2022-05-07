@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>C.O.P.A.H. Happenings</title>
+    <title>C.O.P.A.H. Happenings\The Serpa Wedding</title>
     {% include "header.html" %}
     {% include "side.html" %}
     <td align="center" class=main valign="top" width="62%">
@@ -11,20 +11,21 @@
         </table>
         <table bgcolor="#FFFFFF" cellpadding="2" cellspacing="3" width="96%">
             <tr>
+                <td class=boxhead colspan=4>Denio and Sandra's Wedding</td>
+            </tr>
+            <tr>
                 <td><br></td>
             </tr>
             <tr>
-                <td><a href="{{ url_for('serpa_wedding') }}">Denio and Sandy's Wedding</a></td>
+                <td valign="top">A special day and a great time, it's a two-for. Thanks for including the COPAH family.
+                    All the pictures are below.<p>
+                        <a href="{{ url_for('display', event='SerpaWed', pic=1) }}">Pictures</a>
+                <td><img src="{{ url_for('static', filename='graphics/SerpaWed/SW07.JPG')}}"></td>
             </tr>
             <tr>
-                <td><a href="{{ url_for('luncheon1') }}">Luncheon 2000</a></td>
+                <td><br></td>
             </tr>
-            <tr>
-                <td><a href="{{ url_for('newyear') }}">New Year's @ The COPAH Beach House</a></td>
-            </tr>
-            <tr>
-                <td><a href="{{ url_for('tnt') }}">Team in Training</a></td>
-            </tr>
+
         </table>
         </table>
         </table>

@@ -210,5 +210,25 @@ def mardigraslist():
     return render_template("mardigraslist.html")
 
 
+@app.route('/serpawedding')
+def serpa_wedding():
+    return render_template("serpawedding.html")
+
+
+@app.route('/luncheon1')
+def luncheon1():
+    return render_template("luncheon1.html")
+
+
+@app.route('/newyear')
+def newyear():
+    return render_template("newyear.html")
+
+
+@app.route('/tnt')
+def tnt():
+    return render_template("tnt.html")
+
+
 if __name__ == "__main__":
     app.run(host='127.0.0.33', port=5000, debug=True)
