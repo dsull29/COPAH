@@ -79,6 +79,58 @@ class Pictures(db.Model):
     Number = db.Column(db.Integer(), nullable=False)
     ETitle = db.Column(db.String(250), nullable=False)
 
+
+class Rank(db.Model):
+    __tablename__ = "ranks"
+    AKA = db.Column(db.String(250), primary_key=True)
+    Tourney2 = db.Column(db.Integer)
+    Tourney3 = db.Column(db.Integer)
+    Tourney4 = db.Column(db.Integer)
+    Active = db.Column(db.Integer)
+    Tourney1 = db.Column(db.Integer)
+    T1P = db.Column(db.Integer)
+    T1F = db.Column(db.Integer)
+    T1C = db.Column(db.Integer)
+    T2P = db.Column(db.Integer)
+    T2F = db.Column(db.Integer)
+    T2C = db.Column(db.Integer)
+    T3P = db.Column(db.Integer)
+    T3F = db.Column(db.Integer)
+    T3C = db.Column(db.Integer)
+    T4P = db.Column(db.Integer)
+    T4F = db.Column(db.Integer)
+    T4C = db.Column(db.Integer)
+    Current = db.Column(db.Integer)
+    Tourney5 = db.Column(db.Integer)
+    T5P = db.Column(db.Integer)
+    T5F = db.Column(db.Integer)
+    T5C = db.Column(db.Integer)
+    RWin = db.Column(db.Integer)
+    RLoss = db.Column(db.Integer)
+    PWin = db.Column(db.Integer)
+    PLoss = db.Column(db.Integer)
+    FWin = db.Column(db.Integer)
+    FLoss = db.Column(db.Integer)
+    SixWin = db.Column(db.Integer)
+    SixLoss = db.Column(db.Integer)
+    Tourney6 = db.Column(db.Integer)
+    T6P = db.Column(db.Integer)
+    T6F = db.Column(db.Integer)
+    T6C = db.Column(db.Integer)
+    Tourney = db.Column(db.Integer)
+    T7P = db.Column(db.Integer)
+    T7F = db.Column(db.Integer)
+    T7C = db.Column(db.Integer)
+    Tourney8 = db.Column(db.Integer)
+    T8P = db.Column(db.Integer)
+    T8F = db.Column(db.Integer)
+    T8C = db.Column(db.Integer)
+    Tourney9 = db.Column(db.Integer)
+    T9P = db.Column(db.Integer)
+    T9F = db.Column(db.Integer)
+    T9C = db.Column(db.Integer)
+
+
 db.create_all()
 
 
@@ -145,6 +197,54 @@ def tournament_detail(tourney_id):
 @app.route('/rankings')
 def rankings():
     return render_template("rankings.html")
+
+
+@app.route('/rank/1')
+def rank_1():
+    rows = Rank.query.order_by(Rank.Tourney1.desc()).all()
+    list = [{"AKA": row.AKA,
+             "Pts": row.Tourney1 + 1600,
+             "Apps": 1,
+             "TP": row.T1P,
+             "TF": row.T1F,
+             "TC": row.T1C} for row in rows if row.Tourney1 != 0 or row.AKA == "Jay-Ave" or row.AKA == "Serpentor"]
+    return render_template("rank1.html", rows=list)
+
+
+@app.route('/rank/2')
+def rank_2():
+    rows = Rank.query.order_by(Rank.Tourney2.desc()).all()
+    list = [{"AKA": row.AKA,
+             "Pts": row.Tourney2 + row.Tourney1 + 1600,
+             "Apps": 2,
+             "TP": row.T2P + row.T1P,
+             "TF": row.T2F + row.T2F,
+             "TC": row.T2C + row.T2C} for row in rows if row.Tourney2 != 0]
+    return render_template("rank1.html", rows=list)
+
+
+@app.route('/rank/3')
+def rank_3():
+    rows = Rank.query.order_by(Rank.Tourney3.desc()).all()
+    list = [{"AKA": row.AKA,
+             "Pts": row.Tourney3 + row.Tourney2 + row.Tourney1 + 1600,
+             "Apps": 3,
+             "TP": row.T3P + row.T2P + row.T1P,
+             "TF": row.T3F + row.T2F + row.T1F,
+             "TC": row.T3C + row.T2C + row.T1C} for row in rows if row.Tourney3 != 0]
+    return render_template("rank1.html", rows=list)
+
+
+@app.route('/rank/4')
+def rank_4():
+    rows = Rank.query.order_by(Rank.Tourney4.desc()).all()
+    list = [{"AKA": row.AKA,
+             "Pts": row.Tourney4 + row.Tourney3 + row.Tourney2 + row.Tourney1 + 1600,
+             "Apps": 3,
+             "TP": row.T4P + row.T3P + row.T2P + row.T1P,
+             "TF": row.T4F + row.T3F + row.T2F + row.T1F,
+             "TC": row.T4C + row.T3C + row.T2C + row.T1C} for row in rows if row.Tourney4 != 0]
+    return render_template("rank1.html", rows=list)
 
 
 @app.route('/rulesof45')
