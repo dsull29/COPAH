@@ -22,6 +22,32 @@
             <!--                <td><br></td>-->
             <!--            </tr>-->
             <tr>
+                <td class="boxhead">Members</td>
+            </tr>
+
+            {% if current_user.is_authenticated: %}
+            <tr>
+                <td class="Side">
+                    <strong>Welcome {{ current_user.AKA }}!!</strong><br>
+                    <a href="editprofile.asp">Edit&nbsp;Profile</a><br>
+                    <a href="eventsignup.asp">Event&nbsp;Sign-Up</a><br>
+                    <a href="groupemail.asp">Group&nbsp;Email</a><br>
+                    <a href="{{ url_for('news_post') }}">News&nbsp;Updates</a><br>
+                    <a href="{{ url_for('logout') }}">Log out</a><br>
+                </td>
+            </tr>
+
+            {% else: %}
+            <tr>
+                <td class="Side">
+                    <a href="{{ url_for('login') }}">Login</a><br>&nbsp;
+                </td>
+            </tr>
+            {% endif %}
+            <tr>
+                <td><br></td>
+            </tr>
+            <tr>
                 <td class="boxhead">'45' Dealings</td>
             </tr>
             <tr>

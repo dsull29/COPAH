@@ -1,0 +1,41 @@
+<html>
+<head>
+    <title>C.O.P.A.H. People</title>
+
+    {% include "header.html" %}
+    {% include "side.html" %}
+    <td align="center" class=main valign="top" width="62%">
+        <table cellpadding="0" cellspacing="0" width="90%">
+            <tr>
+                <td class=title>45 Player Rankings</td>
+            </tr>
+        </table>
+        <table bgcolor="#FFFFFF" cellpadding="2" cellspacing="3" width="96%">
+            <tr>
+                <td class=boxhead colspan=4>Post Tournament I</td>
+            </tr>
+
+            <tr>
+                <td>
+
+                    <form action="{{url_for('login')}}" method="post" name="form">
+                        User Name:<br>
+                        <input name="Membername" size="20" type="text"><br>
+                        Password:<br>
+                        <input name="Password" size="15" type="password">
+                        <input name="Submit" type="submit" value="Go!">
+                    </form>
+
+
+                </td>
+            </tr>
+        </table>
+        </table>
+
+    </td>
+    </tr>
+
+
+    </body>
+</html>
+

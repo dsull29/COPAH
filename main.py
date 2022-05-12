@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for, flash, abort
+from flask import Flask, render_template, redirect, url_for, flash, abort, request
 from flask_bootstrap import Bootstrap
 from flask_ckeditor import CKEditor
 from datetime import date
@@ -7,7 +7,9 @@ from sqlalchemy.orm import relationship
 from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user
 from random import choice
 import os
-import requests
+from forms import CreateNewsPostForm
+
+# import requests
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
@@ -17,12 +19,14 @@ Bootstrap(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL", "sqlite:///copah.db")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
-# login_manager = LoginManager()
-# login_manager.init_app(app)
 
-# @login_manager.user_loader
-# def load_user(user_id):
-#     return User.query.get(int(user_id))
+login_manager = LoginManager()
+login_manager.init_app(app)
+
+
+@login_manager.user_loader
+def load_user(member_name):
+    return Members.query.get(member_name)
 
 
 class News(db.Model):
@@ -37,11 +41,11 @@ class News(db.Model):
     AKA = db.Column(db.String(40), nullable=False)
 
 
-class Members(db.Model):
+class Members(UserMixin, db.Model):
     __tablename__ = "members"
     FirstName = db.Column(db.String(250))
     LastName = db.Column(db.String(250))
-    AKA = db.Column(db.String(250), primary_key=True)
+    AKA = db.Column(db.String(250))
     Major = db.Column(db.String(250))
     Birthday = db.Column(db.String(250))
     Address = db.Column(db.String(250))
@@ -55,7 +59,7 @@ class Members(db.Model):
     Work = db.Column(db.String(250))
     WebSiteURL = db.Column(db.String(250))
     WebSiteName = db.Column(db.String(250))
-    MemberName = db.Column(db.String(250))
+    MemberName = db.Column(db.String(250), primary_key=True)
     Password = db.Column(db.String(250))
     Picture = db.Column(db.String(250))
     Luncheon2000 = db.Column(db.Integer())
@@ -67,6 +71,9 @@ class Members(db.Model):
     Baseball = db.Column(db.Integer())
     Guests = db.Column(db.Integer())
     CN = db.Column(db.String(250))
+
+    def get_id(self):
+        return self.MemberName
 
 
 class Pictures(db.Model):
@@ -139,8 +146,36 @@ def home():
     news = News.query.order_by(News.ID.desc()).all()[:5]
     random_picture = choice(Pictures.query.all())
     photofilename = "graphics/" + random_picture.Event + "/" + random_picture.File
-    # print(photofilename)
-    return render_template("index.html", news=news, photo=random_picture, photo_filename=photofilename)
+    return render_template("index.html", news=news, photo=random_picture, photo_filename=photofilename,
+                           current_user=current_user)
+
+
+@app.route('/login', methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        membername = request.form.get("Membername")
+        password = request.form.get("Password")
+
+        user = Members.query.filter_by(MemberName=membername).first()
+        if not user:
+            flash("That member does not exist")
+            return redirect(url_for('login'))
+
+        elif user.Password != password:
+            flash("Password incorrect, please try again.")
+            return redirect(url_for('login'))
+
+        else:
+            login_user(user, force=True)
+            flash('You were successfully logged in')
+            return redirect(url_for('home'))
+    return render_template("login.html")
+
+
+@app.route('/logout')
+def logout():
+    logout_user()
+    return redirect(url_for('home'))
 
 
 @app.route('/members')
@@ -154,6 +189,24 @@ def show_member(AKA):
     member = Members.query.get(AKA)
     print(member)
     return render_template("member_profile.html", member=member)
+
+
+@app.route('/news_post', methods=["GET", "POST"])
+@login_required
+def news_post():
+    form = CreateNewsPostForm()
+    if form.validate_on_submit():
+        new_post = News(
+            Title=form.title.data,
+            Blurb=form.blurb.data,
+            News=form.news.data,
+            AKA=current_user.AKA,
+            Date=date.today().strftime("%B %d, %Y")
+        )
+        db.session.add(new_post)
+        db.session.commit()
+        return redirect(url_for('home'))
+    return render_template("newspost.html", form=form)
 
 
 @app.route('/history')
