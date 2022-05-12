@@ -138,7 +138,7 @@ class Rank(db.Model):
     T9C = db.Column(db.Integer)
 
 
-db.create_all()
+# db.create_all()
 
 
 @app.route('/')
