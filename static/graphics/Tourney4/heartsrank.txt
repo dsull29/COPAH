@@ -1,7 +1,0 @@
-Rank	Name	Pts	G  W  Avg Finish
-1    	John    	1679   11  6   1.635
-2    	Steve   	1633  	6   3   1.835
-3    	Gary    	1603  	6   1   2.500
-4    	Tom     	1570  	12   2   2.750
-5    	Brian   	1570   15   3   2.833
-6    	Dave    	1559   14   2   2.885

@@ -16,7 +16,7 @@ app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
 ckeditor = CKEditor(app)
 Bootstrap(app)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL", "sqlite:///copah.db")
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL", "sqlite:///database/copah.db")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
@@ -31,60 +31,60 @@ def load_user(member_name):
 
 class News(db.Model):
     __tablename__ = "news"
-    ID = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
     # author_id = db.Column(db.Integer, db.ForeignKey("users.id"))
     # author = relationship("User", back_populates="posts")
-    Title = db.Column(db.String(250), nullable=False)
-    Blurb = db.Column(db.String(250))
-    Date = db.Column(db.String(250), nullable=False)
-    News = db.Column(db.Text, nullable=False)
-    AKA = db.Column(db.String(40), nullable=False)
+    title = db.Column(db.String(250), nullable=False)
+    blurb = db.Column(db.String(250))
+    date = db.Column(db.String(250), nullable=False)
+    news = db.Column(db.Text, nullable=False)
+    alias = db.Column(db.String(40), nullable=False)
 
 
 class Members(UserMixin, db.Model):
     __tablename__ = "members"
-    FirstName = db.Column(db.String(250))
-    LastName = db.Column(db.String(250))
-    AKA = db.Column(db.String(250))
-    Major = db.Column(db.String(250))
-    Birthday = db.Column(db.String(250))
-    Address = db.Column(db.String(250))
-    Address2 = db.Column(db.String(250))
-    City = db.Column(db.String(250))
-    State = db.Column(db.String(2))
-    Zip = db.Column(db.String(10))
-    CellPhone = db.Column(db.String(250))
-    HomePhone = db.Column(db.String(250))
-    EMail = db.Column(db.String(250))
-    Work = db.Column(db.String(250))
-    WebSiteURL = db.Column(db.String(250))
-    WebSiteName = db.Column(db.String(250))
-    MemberName = db.Column(db.String(250), primary_key=True)
-    Password = db.Column(db.String(250))
-    Picture = db.Column(db.String(250))
-    Luncheon2000 = db.Column(db.Integer())
-    Friend = db.Column(db.Integer())
-    Football = db.Column(db.Integer())
-    Basketball = db.Column(db.Integer())
-    Hockey = db.Column(db.Integer())
-    Owner = db.Column(db.String(250))
-    Baseball = db.Column(db.Integer())
-    Guests = db.Column(db.Integer())
-    CN = db.Column(db.String(250))
+    first_name = db.Column(db.String(250))
+    last_name = db.Column(db.String(250))
+    alias = db.Column(db.String(250))
+    college_major = db.Column(db.String(250))
+    birthday = db.Column(db.String(250))
+    address = db.Column(db.String(250))
+    address2 = db.Column(db.String(250))
+    city = db.Column(db.String(250))
+    state = db.Column(db.String(2))
+    zip = db.Column(db.String(10))
+    mobile_phone = db.Column(db.String(250))
+    home_phone = db.Column(db.String(250))
+    email = db.Column(db.String(250))
+    work = db.Column(db.String(250))
+    site_url = db.Column(db.String(250))
+    site_name = db.Column(db.String(250))
+    member_name = db.Column(db.String(250), primary_key=True)
+    password = db.Column(db.String(250))
+    picture = db.Column(db.String(250))
+    luncheon_2000 = db.Column(db.Integer())
+    friend = db.Column(db.Integer())
+    football = db.Column(db.Integer())
+    basketball = db.Column(db.Integer())
+    hockey = db.Column(db.Integer())
+    owner = db.Column(db.String(250))
+    baseball = db.Column(db.Integer())
+    guests = db.Column(db.Integer())
+    cn = db.Column(db.String(250))
 
     def get_id(self):
-        return self.MemberName
+        return self.member_name
 
 
 class Pictures(db.Model):
     __tablename__ = "pictures"
-    ID = db.Column(db.Integer, primary_key=True)
-    Event = db.Column(db.String(100), nullable=False)
-    File = db.Column(db.String(100), nullable=False)
-    Comment = db.Column(db.Text)
-    Rating = db.Column(db.Integer(), nullable=False)
-    Number = db.Column(db.Integer(), nullable=False)
-    ETitle = db.Column(db.String(250), nullable=False)
+    id = db.Column(db.Integer, primary_key=True)
+    event = db.Column(db.String(100), nullable=False)
+    file = db.Column(db.String(100), nullable=False)
+    comment = db.Column(db.Text)
+    rating = db.Column(db.Integer(), nullable=False)
+    number = db.Column(db.Integer(), nullable=False)
+    event_title = db.Column(db.String(250), nullable=False)
 
 
 class Rank(db.Model):
@@ -138,14 +138,14 @@ class Rank(db.Model):
     T9C = db.Column(db.Integer)
 
 
-# db.create_all()
+db.create_all()
 
 
 @app.route('/')
 def home():
-    news = News.query.order_by(News.ID.desc()).all()[:5]
+    news = News.query.order_by(News.id.desc()).all()[:5]
     random_picture = choice(Pictures.query.all())
-    photofilename = "graphics/" + random_picture.Event + "/" + random_picture.File
+    photofilename = "graphics/" + random_picture.event + "/" + random_picture.file
     return render_template("index.html", news=news, photo=random_picture, photo_filename=photofilename,
                            current_user=current_user)
 
@@ -161,7 +161,7 @@ def login():
             flash("That member does not exist")
             return redirect(url_for('login'))
 
-        elif user.Password != password:
+        elif user.password != password:
             flash("Password incorrect, please try again.")
             return redirect(url_for('login'))
 
@@ -180,7 +180,7 @@ def logout():
 
 @app.route('/members')
 def members():
-    members = Members.query.order_by(Members.AKA).all()
+    members = Members.query.order_by(Members.alias).all()
     return render_template("people.html", members=members)
 
 
@@ -200,7 +200,7 @@ def news_post():
             Title=form.title.data,
             Blurb=form.blurb.data,
             News=form.news.data,
-            AKA=current_user.AKA,
+            AKA=current_user.alias,
             Date=date.today().strftime("%B %d, %Y")
         )
         db.session.add(new_post)
@@ -226,7 +226,7 @@ def history3():
 
 @app.route('/archives')
 def archives():
-    news = News.query.order_by(News.ID.desc()).all()
+    news = News.query.order_by(News.id.desc()).all()
     return render_template("index.html", news=news)
 
 
@@ -255,19 +255,19 @@ def rankings():
 @app.route('/rank/1')
 def rank_1():
     rows = Rank.query.order_by(Rank.Tourney1.desc()).all()
-    list = [{"AKA": row.AKA,
+    list = [{"AKA": row.alias,
              "Pts": row.Tourney1 + 1600,
              "Apps": 1,
              "TP": row.T1P,
              "TF": row.T1F,
-             "TC": row.T1C} for row in rows if row.Tourney1 != 0 or row.AKA == "Jay-Ave" or row.AKA == "Serpentor"]
+             "TC": row.T1C} for row in rows if row.Tourney1 != 0 or row.alias == "Jay-Ave" or row.alias == "Serpentor"]
     return render_template("rank1.html", rows=list)
 
 
 @app.route('/rank/2')
 def rank_2():
     rows = Rank.query.order_by(Rank.Tourney2.desc()).all()
-    list = [{"AKA": row.AKA,
+    list = [{"AKA": row.alias,
              "Pts": row.Tourney2 + row.Tourney1 + 1600,
              "Apps": 2,
              "TP": row.T2P + row.T1P,
@@ -279,7 +279,7 @@ def rank_2():
 @app.route('/rank/3')
 def rank_3():
     rows = Rank.query.order_by(Rank.Tourney3.desc()).all()
-    list = [{"AKA": row.AKA,
+    list = [{"AKA": row.alias,
              "Pts": row.Tourney3 + row.Tourney2 + row.Tourney1 + 1600,
              "Apps": 3,
              "TP": row.T3P + row.T2P + row.T1P,
@@ -291,7 +291,7 @@ def rank_3():
 @app.route('/rank/4')
 def rank_4():
     rows = Rank.query.order_by(Rank.Tourney4.desc()).all()
-    list = [{"AKA": row.AKA,
+    list = [{"AKA": row.alias,
              "Pts": row.Tourney4 + row.Tourney3 + row.Tourney2 + row.Tourney1 + 1600,
              "Apps": 3,
              "TP": row.T4P + row.T3P + row.T2P + row.T1P,
@@ -319,9 +319,9 @@ def happenings():
 def display(event, pic):
     picture = Pictures.query.filter_by(Number=pic, Event=event).first()
     if picture:
-        comment = picture.Comment
-        filename = "/graphics/" + event + "/" + picture.File
-        title = picture.ETitle
+        comment = picture.comment
+        filename = "/graphics/" + event + "/" + picture.file
+        title = picture.event_title
         next = int(pic) + 1
         prior = int(pic) - 1
         last = len(Pictures.query.filter_by(Event=event).all())
