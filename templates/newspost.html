@@ -1,43 +1,16 @@
+{% extends "base.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
 
-<html>
-<head>
-    <title>C.O.P.A.H. News\New Article</title>
-    {% include "header.html" %}
-    {% include "side.html" %}
-    <td align="center" class=main valign="top" width="62%">
-        <table cellpadding="0" cellspacing="0" width="90%">
-            <tr>
-                <td class=title>News</td>
-            </tr>
-        </table>
-        <table bgcolor="#FFFFFF" cellpadding="2" cellspacing="3" width="96%">
-            <tr>
-                <td class=boxhead colspan=4>New Article</td>
-            </tr>
-            <tr>
-                <td colspan="2">This form will allow select COPAH members to post 'NEWS' messages on the home page. The
-                    News field should be filled in with no spacing or anything just type it. If you want there to be a
-                    separate paragraph you must use &lt;p&gt; between the paragraphs. The date and your will
-                    automatically be built in to the message so there is no need to add either, in fact it will look
-                    stupid if you do add them. Remember keep it clean too.
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    {{ ckeditor.load() }}
-                    {{ ckeditor.config(name='News') }}
-                    {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary"}) }}
-                </td>
-            </tr>
+{% block title %}COPAH - New News Post {% endblock %}
 
-        </table>
-        </table>
-        </table>
-
-    </td>
-    </tr>
-
-
-    </body>
-</html>
+{% block content %}
+<div class="container bgwhite">
+    <h2 class="boxhead">New Article</h2>
+    <p>This form will post new messages to the News feed.</p>
+    <div>
+        {{ ckeditor.load() }}
+        {{ ckeditor.config(name='News') }}
+        {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary"}) }}
+    </div>
+</div>
+{% endblock %}

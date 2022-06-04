@@ -7,7 +7,7 @@ from sqlalchemy.orm import relationship
 from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user
 from random import choice
 import os
-from forms import CreateNewsPostForm, CreateEventForm
+from forms import CreateNewsPostForm, CreateEventForm, LoginForm
 
 # import requests
 
@@ -164,14 +164,17 @@ def home():
 
 @app.route('/login', methods=["GET", "POST"])
 def login():
-    if request.method == "POST":
-        membername = request.form.get("Membername")
-        password = request.form.get("Password")
+    form = LoginForm()
+    if form.validate_on_submit():
+        username = form.username.data
+        password = form.password.data
 
-        user = Members.query.filter_by(member_name=membername).first()
+        user = Members.query.filter_by(member_name=username).first()
+
         if not user:
             flash("That member does not exist")
             return redirect(url_for('login'))
+
 
         elif user.password != password:
             flash("Password incorrect, please try again.")
@@ -181,7 +184,7 @@ def login():
             login_user(user, force=True)
             flash('You were successfully logged in')
             return redirect(url_for('home'))
-    return render_template("login.html")
+    return render_template("login.html", form=form)
 
 
 @app.route('/logout')
@@ -209,7 +212,6 @@ def add_event():
     list = [""]
     for event in db.session.query(Pictures.event).distinct():
         list.append(event.event)
-    print(list)
     form = CreateEventForm()
     form.picture_key.choices = list
     if form.validate_on_submit():

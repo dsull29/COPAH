@@ -7,7 +7,7 @@
 
 				body {
 					background-color: #00105F;
-					font : 12px Arial, Helvetica, sans-serif;
+					font : 14px Arial, Helvetica, sans-serif;
 				}
 
                 div {}
@@ -25,11 +25,9 @@
 				}
 				.normtd {
 					font-family : Arial, Helvetica, sans-serif;
-					font-size : 12px;
 				}
 				.bigtd {
 					font-family : Arial, Helvetica, sans-serif;
-					font-size : bold 13px;
 				}
 				.main{
 					background-color:Gray;
@@ -55,38 +53,13 @@
 				h1
 				{
 					font-family : Arial, Helvetica, sans-serif;
-					font-size : 13px
 				}
 				.title{
-					font : 600 16px;
 					letter-spacing : 1.5px;
 					margin-left : 10px;
 					text-align : left;
 				}
-				.date{
-					font : 300 xx-small;
-					margin-left : 15px;
-					text-align : left;}
-				.divide{border-bottom : thick inset Gray;}
-				.toplink{ color: white;
-					font:600 14px;}
-				.toplink:hover{ color:white;
-					font: 600 14px;}
-				A{ color: #00105F;
-					font: 12px}
 
-				.cal{border : thin solid Black;
-					font-family : Arial, Helvetica, sans-serif;
-					font-size : 10px;}
-				.topcal {
-					font-family : Arial, Helvetica, sans-serif;
-					font-size : 10px;background-color: #D4D4D4;
-					letter-spacing : 1px;
-					vertical-align : baseline;
-					background : Silver;
-					font : 300;	}
-				.calright{border-right : thin double Black;	}
-				.calleft{border-left : thin double Black;}
 				.xl24
 				{font-size:12.0pt;
 					font-weight:700;
