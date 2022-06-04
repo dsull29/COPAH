@@ -1,168 +1,146 @@
-<html>
-<head>
-    <title>The C.O.P.A.H. Gallery</title>
+{% extends "base.html" %}
 
-    {% include "header.html" %}
-    {% include "side.html" %}
+{% block content %}
 
-    <td align="center" class=main valign="top" width="62%">
-        <table cellpadding="0" cellspacing="0" width="90%">
-            <tr>
-                <td class=title>The COPAH Gallery</td>
-            </tr>
-        </table>
-        <table bgcolor="#FFFFFF" cellpadding="2" cellspacing="3" width="96%">
-            <tr>
-                <td class=boxhead colspan=3>Tournaments</td>
-            </tr>
-            <tr>
-                <td align="center" width="33%"><img border="1"
-                                                    src="{{ url_for('static', filename='graphics/Tourney2001/number_1_td.jpg')}}">
-                </td>
-                <td align="center" width="33%"><img border="1"
-                                                    src="{{ url_for('static', filename='graphics/FallTourney2001/P1010040_td.jpg')}}">
-                </td>
-                <td align="center" width="33%"><img border="1"
-                                                    src="{{ url_for('static', filename='graphics/Tourney4/T4-19_td.jpg')}}">
-                </td>
-            <tr>
-                <td align="center" width="33%">
-                    <a href="{{ url_for('display', event='Tourney2001', pic=1) }}"><strong>45 Tournament II</strong></a>
-                </td>
-                <td align="center" width="33%">
-                    <a href="{{ url_for('display', event='FallTourney2001', pic=1) }}">
-                        <strong>45 Tournament III</strong>
-                    </a></td>
-                <td align="center" width="33%">
-                    <a href="{{ url_for('display', event='Tourney4', pic=1) }}"><strong>45 Tournament IV</strong></a>
-                </td>
-            </tr>
-            <tr>
-                <td align="center" width="33%"><img border="1"
-                                                    src="{{ url_for('static', filename='graphics/Tourney5/t5-37_td.jpg')}}">
-                </td>
-                <td align="center" width="33%"><img border="1"
-                                                    src="{{ url_for('static', filename='graphics/Tourney7/tourney7 030_td.jpg')}}">
-                </td>
-                <td align="center" width="33%"><img border="1"
-                                                    src="{{ url_for('static', filename='graphics/Tourney8/32_td.jpg')}}">
-                </td>
-            <tr>
-                <td align="center" width="33%">
-                    <a href="{{ url_for('display', event='Tourney5', pic=1) }}"><strong>45 Tournament V</strong></a>
-                </td>
-                <td align="center" width="33%">
-                    <a href="{{ url_for('display', event='Tourney7', pic=1) }}"><strong>45 Tournament VII</strong></a>
-                </td>
-                <td align="center" width="33%">
-                    <a href="{{ url_for('display', event='Tourney8', pic=1) }}"><strong>45 Tournament VIII</strong></a>
-                </td>
-            </tr>
-            <tr>
-                <td><br></td>
-            </tr>
-            <tr>
-                <td class=boxhead colspan=3>Karaoke</td>
-            </tr>
-            <tr>
-                <td align="center" width="33%"><img border="1"
-                                                    src="{{ url_for('static', filename='graphics/Karaoke1/Karaoke1-10_td.jpg')}}">
-                </td>
-                <td align="center" width="33%"><img border="1"
-                                                    src="{{ url_for('static', filename='graphics/Karaoke2/K2_1_td.jpg')}}">
-                </td>
-                <td align="center" width="33%"><img border="1"
-                                                    src="{{ url_for('static', filename='graphics/Karaoke3/K3_17_td.jpg')}}">
-                </td>
-            <tr>
-                <td align="center" width="33%">
-                    <a href="{{ url_for('display', event='Karaoke1', pic=1) }}"><strong>Columbus Day
-                        Karaoke</strong></a></td>
-                <td align="center" width="33%">
-                    <a href="{{ url_for('display', event='Karaoke2', pic=1) }}"><strong>Veterans Day
-                        Karaoke</strong></a></td>
-                <td align="center" width="33%">
-                    <a href="{{ url_for('display', event='Karaoke3', pic=1) }}"><strong>Thanksgiving
-                        Karaoke</strong></a></td>
-            </tr>
-            <tr>
-                <td align="center" width="33%"><img border="1"
-                                                    src="{{ url_for('static', filename='graphics/Karaoke4/xmaskar16_td.jpg')}}">
-                </td>
-                <td align="center" width="33%"><img border="1"
-                                                    src="{{ url_for('static', filename='graphics/Karaoke5/k5-12_td.jpg')}}">
-                </td>
-                <td align="center" width="33%"><img border="1"
-                                                    src="{{ url_for('static', filename='graphics/Karaoke6/K6_17_td.jpg')}}">
-                </td>
-            <tr>
-                <td align="center" width="33%">
-                    <a href="{{ url_for('display', event='Karaoke4', pic=1) }}"><strong>Christmas Karaoke</strong></a>
-                </td>
-                <td align="center" width="33%">
-                    <a href="{{ url_for('display', event='Karaoke5', pic=1) }}"><strong>Patriots Day
-                        Karaoke</strong></a></td>
-                <td align="center" width="33%">
-                    <a href="{{ url_for('display', event='Karaoke6', pic=1) }}"><strong>Memorial Day
-                        Karaoke</strong></a></td>
-            </tr>
-            <tr>
-                <td><br></td>
-                <td align="center" width="33%"><img border="1"
-                                                    src="{{ url_for('static', filename='graphics/Karaoke7/karaoke7 003_td.jpg')}}">
-                </td>
-            <tr>
-                <td><br></td>
+<div class="container">
 
-                <td align="center" width="33%">
-                    <a href="{{ url_for('display', event='Karaoke7', pic=1) }}"><strong>Labor Day Karaoke</strong></a>
-                </td>
-            <tr>
-                <td><br></td>
-            </tr>
-            <tr>
-                <td class=boxhead colspan=3>Outings</td>
-            </tr>
-            <tr>
-                <td align="center" width="33%"><img border="1"
-                                                    src="{{ url_for('static', filename='graphics/Luncheon/Luncheon1_td.jpg')}}">
-                </td>
-                <td align="center" width="33%"><img border="1"
-                                                    src="{{ url_for('static', filename='graphics/NYE2001/nye11_td.jpg')}}">
-                </td>
-                <td align="center" width="33%"><img border="1"
-                                                    src="{{ url_for('static', filename='graphics/SerpaWed/SW07_td.jpg')}}">
-                </td>
-            <tr>
-                <td align="center" width="33%">
-                    <a href="{{ url_for('display', event='Luncheon', pic=1) }}"><strong>Luncheon 2000</strong></a></td>
-                <td align="center" width="33%">
-                    <a href="{{ url_for('display', event='NYE2001', pic=1) }}"><strong>New Years Eve 2001</strong></a>
-                </td>
-                <td align="center" width="33%">
-                    <a href="{{ url_for('display', event='SerpaWed', pic=1) }}"><strong>The Serpa Wedding</strong></a>
-                </td>
-            <tr>
-                <td align="center" width="33%"><img border="1"
-                                                    src="{{ url_for('static', filename='graphics/Luau/luau07_td.jpg')}}">
-                </td>
-                <td align="center" width="33%"><img border="1"
-                                                    src="{{ url_for('static', filename='graphics/MardiGras/mg028_td.jpg')}}">
-                </td>
-            <tr>
-                <td align="center" width="33%">
-                    <a href="{{ url_for('display', event='Luau', pic=1) }}"><strong>Luau 2002</strong></a></td>
-                <td align="center" width="33%">
-                    <a href="{{ url_for('display', event='MardiGras', pic=1) }}"><strong>Mardi Gras 2003</strong></a>
-                </td>
+    <div class="row boxhead">Tournaments</div>
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <img class="card-img-top" src="{{ url_for('static', filename='graphics/tourney2001/number_1_td.jpg')}}">
+                <a class="card-title" href="{{ url_for('display', event='Tourney2001', pic=1) }}">45 Tournament II</a>
+            </div>
+        </div>
 
-        </table>
-        </table>
-        </table>
+        <div class="col">
+            <div class="card">
+                <img class="card-img-top"
+                     src="{{ url_for('static', filename='graphics/falltourney2001/p1010040_td.jpg')}}">
+                <a class="card-title" href="{{ url_for('display', event='FallTourney2001', pic=1) }}">45 Tournament
+                    III</a>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <img class="card-img-top" src="{{ url_for('static', filename='graphics/tourney4/t4_19_td.jpg')}}">
+                <a class="card-title" href="{{ url_for('display', event='Tourney4', pic=1) }}">45 Tournament IV</a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <img src="{{ url_for('static', filename='graphics/tourney5/t5_37_td.jpg')}}">
+                <a href="{{ url_for('display', event='Tourney5', pic=1) }}"><strong>45 Tournament V</strong></a>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <img src="{{ url_for('static', filename='graphics/tourney7/tourney7_030_td.jpg')}}">
+                <a href="{{ url_for('display', event='Tourney7', pic=1) }}"><strong>45 Tournament VII</strong></a>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <img src="{{ url_for('static', filename='graphics/tourney8/32_td.jpg')}}">
+                <a href="{{ url_for('display', event='Tourney8', pic=1) }}"><strong>45 Tournament VIII</strong></a>
+            </div>
+        </div>
+    </div>
 
-    </td>
+    <div class="row boxhead">Karaoke</div>
+    <tr>
+        <td align="center" width="33%"><img border="1"
+                                            src="{{ url_for('static', filename='graphics/karaoke1/karaoke1_10_td.jpg')}}">
+        </td>
+        <td align="center" width="33%"><img border="1"
+                                            src="{{ url_for('static', filename='graphics/karaoke2/k2_1_td.jpg')}}">
+        </td>
+        <td align="center" width="33%"><img border="1"
+                                            src="{{ url_for('static', filename='graphics/karaoke3/k3_17_td.jpg')}}">
+        </td>
+    <tr>
+        <td align="center" width="33%">
+            <a href="{{ url_for('display', event='karaoke1', pic=1) }}"><strong>Columbus Day
+                Karaoke</strong></a></td>
+        <td align="center" width="33%">
+            <a href="{{ url_for('display', event='karaoke2', pic=1) }}"><strong>Veterans Day
+                Karaoke</strong></a></td>
+        <td align="center" width="33%">
+            <a href="{{ url_for('display', event='karaoke3', pic=1) }}"><strong>Thanksgiving
+                Karaoke</strong></a></td>
     </tr>
+    <tr>
+        <td align="center" width="33%"><img border="1"
+                                            src="{{ url_for('static', filename='graphics/karaoke4/xmaskar16_td.jpg')}}">
+        </td>
+        <td align="center" width="33%"><img border="1"
+                                            src="{{ url_for('static', filename='graphics/karaoke5/k5_12_td.jpg')}}">
+        </td>
+        <td align="center" width="33%"><img border="1"
+                                            src="{{ url_for('static', filename='graphics/karaoke6/k6_17_td.jpg')}}">
+        </td>
+    <tr>
+        <td align="center" width="33%">
+            <a href="{{ url_for('display', event='Karaoke4', pic=1) }}"><strong>Christmas Karaoke</strong></a>
+        </td>
+        <td align="center" width="33%">
+            <a href="{{ url_for('display', event='Karaoke5', pic=1) }}"><strong>Patriots Day
+                Karaoke</strong></a></td>
+        <td align="center" width="33%">
+            <a href="{{ url_for('display', event='Karaoke6', pic=1) }}"><strong>Memorial Day
+                Karaoke</strong></a></td>
+    </tr>
+    <tr>
+        <td><br></td>
+        <td align="center" width="33%"><img border="1"
+                                            src="{{ url_for('static', filename='graphics/karaoke7/karaoke7_003_td.jpg')}}">
+        </td>
+    <tr>
+        <td><br></td>
 
+        <td align="center" width="33%">
+            <a href="{{ url_for('display', event='Karaoke7', pic=1) }}"><strong>Labor Day Karaoke</strong></a>
+        </td>
+    <tr>
+        <td><br></td>
+    </tr>
+    <div class="row boxhead">Outings</div>
+    <tr>
+        <td align="center" width="33%"><img border="1"
+                                            src="{{ url_for('static', filename='graphics/luncheon/luncheon1_td.jpg')}}">
+        </td>
+        <td align="center" width="33%"><img border="1"
+                                            src="{{ url_for('static', filename='graphics/nye2001/nye11_td.jpg')}}">
+        </td>
+        <td align="center" width="33%"><img border="1"
+                                            src="{{ url_for('static', filename='graphics/serpaWed/sw07_td.jpg')}}">
+        </td>
+    <tr>
+        <td align="center" width="33%">
+            <a href="{{ url_for('display', event='Luncheon', pic=1) }}"><strong>Luncheon 2000</strong></a></td>
+        <td align="center" width="33%">
+            <a href="{{ url_for('display', event='NYE2001', pic=1) }}"><strong>New Years Eve 2001</strong></a>
+        </td>
+        <td align="center" width="33%">
+            <a href="{{ url_for('display', event='SerpaWed', pic=1) }}"><strong>The Serpa Wedding</strong></a>
+        </td>
+    <tr>
+        <td align="center" width="33%"><img border="1"
+                                            src="{{ url_for('static', filename='graphics/luau/luau07_td.jpg')}}">
+        </td>
+        <td align="center" width="33%"><img border="1"
+                                            src="{{ url_for('static', filename='graphics/mardigras/mg028_td.jpg')}}">
+        </td>
+    <tr>
+        <td align="center" width="33%">
+            <a href="{{ url_for('display', event='Luau', pic=1) }}"><strong>Luau 2002</strong></a></td>
+        <td align="center" width="33%">
+            <a href="{{ url_for('display', event='MardiGras', pic=1) }}"><strong>Mardi Gras 2003</strong></a>
+        </td>
 
-    </body>
-</html>
+        </table>
+</div>
+</div>
+{% endblock %}

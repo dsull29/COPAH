@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-xl bgwhite">
+            {{ ckeditor.load() }}
+            {{ ckeditor.config(name='Body') }}
+            {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary"}) }}
+
+        </div>
+    </div>
+</div>
+{% endblock %}

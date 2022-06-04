@@ -7,7 +7,7 @@ from sqlalchemy.orm import relationship
 from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user
 from random import choice
 import os
-from forms import CreateNewsPostForm
+from forms import CreateNewsPostForm, CreateEventForm
 
 # import requests
 
@@ -138,6 +138,18 @@ class Rank(db.Model):
     T9C = db.Column(db.Integer)
 
 
+class Event(db.Model):
+    __tablename__ = "events"
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100))
+    type = db.Column(db.String(100))
+    date = db.Column(db.String(20))
+    thumbnail = db.Column(db.String(100))
+    picture_key = db.Column(db.String(100))
+    location = db.Column(db.String(100))
+    body = db.Column(db.Text)
+
+
 db.create_all()
 
 
@@ -156,7 +168,7 @@ def login():
         membername = request.form.get("Membername")
         password = request.form.get("Password")
 
-        user = Members.query.filter_by(MemberName=membername).first()
+        user = Members.query.filter_by(member_name=membername).first()
         if not user:
             flash("That member does not exist")
             return redirect(url_for('login'))
@@ -189,6 +201,39 @@ def show_member(AKA):
     member = Members.query.get(AKA)
     print(member)
     return render_template("member_profile.html", member=member)
+
+
+@app.route('/add_event', methods=["GET", "POST"])
+@login_required
+def add_event():
+    list = [""]
+    for event in db.session.query(Pictures.event).distinct():
+        list.append(event.event)
+    print(list)
+    form = CreateEventForm()
+    form.picture_key.choices = list
+    if form.validate_on_submit():
+        new_event = Event(
+            name=form.name.data,
+            type=form.type.data,
+            date=form.date.data,
+            thumbnail=form.thumbnail.data,
+            picture_key=form.picture_key.data,
+            location=form.location.data,
+            body=form.body.data,
+        )
+        db.session.add(new_event)
+        db.session.commit()
+        return redirect(url_for('home'))
+    return render_template("add_event.html", form=form)
+
+
+@app.route('/view_event/<int:event_id>')
+def view_event(event_id):
+    event = Event.query.get(event_id)
+    pics = Pictures.query.filter_by(event=event.picture_key).all()
+    print(pics)
+    return render_template("view_event.html", event=event, pics=pics)
 
 
 @app.route('/news_post', methods=["GET", "POST"])
@@ -237,7 +282,8 @@ def gallery():
 
 @app.route('/tournaments')
 def tournaments():
-    return render_template("tournaments.html")
+    tournaments = Event.query.filter_by(type="T").all()
+    return render_template("tournaments.html", tournaments=tournaments)
 
 
 @app.route('/tournament/<int:tourney_id>')

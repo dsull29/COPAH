@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>{% block title %}{% endblock %}</title>
+    <link href="{{ url_for('static', filename='css/copah.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <script language="javascript" type="text/javascript">
+	function newWindow(cdjpg) {
+		bookWindow = window.open(cdjpg, 'bookWin', 'width=380,height=460')
+		bookWindow.focus()}
+
+	function CalWindow(cdjpg) {
+		bookWindow = window.open(cdjpg, 'bookWin', 'width=420,height=300')
+		bookWindow.focus()}
+
+
+
+    </script>
+</head>
+
+<body>
+<table align="left" border="0" cellpadding="0" cellspacing="0" width="765px">
+    <tr>
+        <td colspan=3>
+            <table border="0" cellpadding="0" cellspacing="0" class=top width="762px">
+                <tr>
+                    <td align="center" class=top colspan="5">
+                        <img align="bottom" alt="COPAH" border="0"
+                             src="{{ url_for('static', filename='banner/Futuristic.gif')}}"></td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <table class=top>
+                            <tr>
+                                <td><a class=toplink href="{{url_for('home')}}">Home</a> |</td>
+                                <td><a class=toplink href="{{ url_for('members') }}">People</a> |</td>
+                                <td><a class=toplink href="{{ url_for('gallery') }}">Gallery</a> |</td>
+                                <td><a class=toplink href="{{ url_for('history') }}">History</a></td>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="5"><br></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    {% include "side.html" %}
+    {% block content %}
+    {% endblock %}
+
+</table>
+</body>
+</html>

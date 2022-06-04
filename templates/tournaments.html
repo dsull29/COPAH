@@ -1,86 +1,21 @@
-<html>
-<head>
-    <title>C.O.P.A.H. 45 Dealings\Tournament </title>
-    {% include "header.html" %}
-    {% include "side.html" %}
-    <td align="center" class=main valign="top" width="62%">
-        <table cellpadding="0" cellspacing="0" width="90%">
-            <tr>
-                <td class=title>45 Dealings</td>
-            </tr>
-        </table>
-        <table bgcolor="#FFFFFF" cellpadding="2" cellspacing="3" width="96%">
-            <tr>
-                <td class=boxhead colspan=3>45 Tournament Recaps</td>
-            </tr>
-            <tr>
-                <td colspan=3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The cornerstone of the COPAH foundation, 45. The tournaments
-                    have turned from a pen and pad idea in 1998 to full blown events these days. By clicking on a title
-                    you'll be able to get the full recap and pictures, if any.
-                </td>
-            </tr>
-            <tr>
-                <td><br></td>
-            </tr>
-            <tr>
-                <td nowrap><a href="{{ url_for('tournament_detail', tourney_id=1) }}"><b>Tourney I</b></a></td>
-                <td><b>Winner:&nbsp;Tim&nbsp;and&nbsp;Scribner</b></td>
-                <td align="right">Fall 98'</td>
-            </tr>
-            <tr>
-                <td nowrap><a href="{{ url_for('tournament_detail', tourney_id=2) }}"><b>Tourney II</b></a></td>
-                <td><b>Winner:&nbsp;Keith&nbsp;and&nbsp;Phipps</b></td>
-                <td align="right">June 21st, 2001</td>
-            </tr>
-            <tr>
-                <td nowrap><a href="{{ url_for('tournament_detail', tourney_id=3) }}"><b>Tourney III</b></a></td>
-                <td><b>Winner:&nbsp;Keith&nbsp;and&nbsp;Phipps</b></td>
-                <td align="right">October&nbsp;27th,&nbsp;2001</td>
-            </tr>
-            <tr>
-                <td nowrap><a href="{{ url_for('tournament_detail', tourney_id=4) }}"><b>Tourney IV</b></a></td>
-                <td><b>Winner:&nbsp;Joe&nbsp;and&nbsp;Oakley</b></td>
-                <td align="right">March&nbsp;16th,&nbsp;2002</td>
-            </tr>
-            <tr>
-                <td nowrap><a href="{{ url_for('tournament_detail', tourney_id=5) }}"><b>Tourney V</b></a></td>
-                <td><b>Winner:&nbsp;Tom&nbsp;and&nbsp;Mikey</b></td>
-                <td align="right">June&nbsp;15th,&nbsp;2002</td>
-            </tr>
-            <tr>
-                <td nowrap><a href="{{ url_for('tournament_detail', tourney_id=6) }}"><b>Tourney VI</b></a></td>
-                <td><b>Winner:&nbsp;Joe&nbsp;and&nbsp;Oakley</b></td>
-                <td align="right">October&nbsp;26th,&nbsp;2002</td>
-            </tr>
-            <tr>
-                <td nowrap><a href="{{ url_for('tournament_detail', tourney_id=7) }}"><b>Tourney VII</b></a></td>
-                <td><b>Winner:&nbsp;Jeff&nbsp;and&nbsp;Mikey</b></td>
-                <td align="right">February 22nd, 2003</td>
-            </tr>
-            <tr>
-                <td nowrap><a href="{{ url_for('tournament_detail', tourney_id=8) }}"><b>Tourney VIII</b></a></td>
-                <td><b>Winner:&nbsp;Tom&nbsp;and&nbsp;Moles</b></td>
-                <td align="right">May 10th, 2003</td>
-            </tr>
-            <tr>
-                <td nowrap><a href="{{ url_for('tournament_detail', tourney_id=9) }}"><b>Tourney IX</b></a></td>
-                <td><b>Winner:&nbsp;Nick&nbsp;and&nbsp;Delosier</b></td>
-                <td align="right">October 18th, 2003</td>
-            </tr>
+{% extends "base.html" %}
 
-            <tr>
-                <td nowrap><a href="{{ url_for('tournament_detail', tourney_id=10) }}"><b>Tourney X</b></a></td>
-                <td>?!?!?!</td>
-                <td align="right">March 27th, 2004</td>
-            </tr>
+{% block content %}
+<div class="container">
+    <h2 class="boxhead">45 Tournament Recaps</h2>
 
-        </table>
-        </table>
-        </table>
+    <p class="lead bgwhite">The cornerstone of the COPAH foundation, 45. The tournaments
+        have turned from a pen and pad idea in 1998 to full blown events these days. By clicking on a title
+        you'll be able to get the full recap and pictures, if any.</p>
 
-    </td>
-    </tr>
+    <div class="list-group">
+        {% for tourney in tournaments: %}
 
+        <a class="list-group-item list-group-item-action" href="{{ url_for('view_event', event_id=tourney.id) }}">
+            {{tourney.name}} - <span class="text-right">{{tourney.date}}</span>
+        </a>
+        {% endfor %}
+    </div>
 
-    </body>
-</html>
+</div>
+{% endblock %}

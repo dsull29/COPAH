@@ -3,50 +3,41 @@
 					border: 0;
 					border-spacing : 0px;
 					border-collapse : collapse;
-					font : 12px Arial, Helvetica, sans-serif;
 				}
+
 				body {
 					background-color: #00105F;
-					background-position: right;
-					background-repeat: no-repeat;
-					background-attachment: fixed;
-					margin-left : 0px;
-					font-size: 12px;
-				}
-
-				td {
 					font : 12px Arial, Helvetica, sans-serif;
 				}
-				.BoxHead {
-					font: 12px Verdana, Geneva, Arial, Helvetica, sans-serif;
-					letter-spacing : 1.5px;
-					color : White;
-					background-color: Maroon;
+
+                div {}
+
+				.boxhead {
+					color : #BFC3D7;
+					background-color: #5F0010;
 					font-weight : bold;
-					left : 100px;
 					text-indent : 5px;
-					border-left : thin ridge Black;
-					border-right : thin ridge Black;
-					border-top : thin ridge Black;
 
 				}
-				.NormTD {
+
+				.bgwhite {
+				    background-color: #FFFFFF;
+				}
+				.normtd {
 					font-family : Arial, Helvetica, sans-serif;
 					font-size : 12px;
 				}
-				.bigTD {
+				.bigtd {
 					font-family : Arial, Helvetica, sans-serif;
 					font-size : bold 13px;
 				}
-				.Main{
+				.main{
 					background-color:Gray;
 					border : thick inset Gray;
 					font-family : Arial, Helvetica, sans-serif;
-					font-size : 10px;
 				}
-				.Side {
+				.side {
 					font-family : Arial, Helvetica, sans-serif;
-					font-size : 12px;
 					background-color: #D4D4D4;
 					letter-spacing : 1px;
 					vertical-align : baseline;
@@ -56,15 +47,12 @@
 					background : Silver;
 					padding-left : 10px;
 				}
-				.Top {
+				.top {
 					background-color: #00105F;
 					font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
 					color: white;
-					letter-spacing: 5px;
-					font-size : 13px;
-					font : 700;
 				}
-				H1
+				h1
 				{
 					font-family : Arial, Helvetica, sans-serif;
 					font-size : 13px
