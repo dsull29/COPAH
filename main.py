@@ -380,7 +380,9 @@ def display(event, pic):
 
 @app.route('/karaoke')
 def karaoke():
-    return render_template("karaoke.html")
+    karaokes = Event.query.filter_by(type="K").all()
+    print(karaokes)
+    return render_template("karaoke.html", karaokes=karaokes)
 
 
 @app.route('/luau')
