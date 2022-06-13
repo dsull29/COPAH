@@ -1,37 +1,73 @@
-<html>
-<head>
-	<title>C.O.P.A.H. History\Chapter II</title>
-    {% include "header.html" %}
-    {% include "side.html" %}
-<td width="62%" class=main align="center" valign="top">
-   <table width="90%" cellspacing="0" cellpadding="0">
-   	<tr><td class=title>The History of C.O.P.A.H.</td></tr>
-	</table>
-	<table width="96%" bgcolor="#FFFFFF" cellspacing="3" cellpadding="2">
-	<tr><td><br></td></tr>
-    <tr><td colspan="2" class=boxhead>Chapter II</th></tr>
-		<tr><td colspan="2"><br></td></tr>
-	    <tr><td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In retrospect, the time that we spent at UMASS will be looked upon with solid smiles. It will often be reminisced about with sentences that begin with the phrase, "Remember that time when�!" and these same conversations will often end with the sentence, "That was awesome!".  The truth is that, no matter how much we complained about the ugliness of the campus, the crappy weather that lingered day in and day out, or just about how awful we felt about the school, we truly did have a good time being Corsairs.
-			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Although we didn't know it at the time, we were truly making memories everyday. They didn't always come in the form of monumentally structured events, such as 45 tournaments or graduation luncheons. For the most part, the majority of COPAH memories came with life's little everyday occurrences, which for some reason seemed to be escalated any time they came in contact with a COPAH member.
-			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Here are some examples of things that to most members of the UMASS community seem very mundane and boring:
-			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Chicken tenders, fries, a cheeseburger, and a drink. Nothing too fancy right? These items in and of themselves are nothing more than the basic items that you can find at any local fast food joint. Put them in the hands of the COPAH faithful and they are turned into one of the basic institutions of group. These items combined to form the official "All-American Meal" to be consumed by all during the lunchtime hours. The everyday person may look at this serving of food and see nothing more than a quick source of nourishment, but we as a group associate it with time spent with friends, having a good time.
-			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;There were, however, other items which were consumed during our respective tenures in Dartmouth, and not all of them were as pleasant as the before mentioned All American Meal. (*This is where we are all supposed to start conjuring up pictures of Phipps in our heads.)  Sure there were some other good memories with food, such as eating the "Big Cookies" or those great days when the school would have the 25 cent hot dog fundraiser, but some of the funniest (and grossest) memories involving food (and I use that term very loosely) seem to go hand in hand with Phipps' yearning to consume anything for a dollar or two. Phipps never ceased to amaze us with his antics, whether they were guzzling down a cup of the hot sauce for the chicken tenders, shoving an entire big cookie into his mouth at once, or the pinnacle of his achievements, drinking a cup of�well�Bobby's�um�dip spit. Let's give a collective round of applause for Phipps and his amazing stomach, for without them, lunch would definitely not have been quite as disgusting or amusing.
-			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Now with all of this talk about the cafeteria, everyone is thinking about the first couple of COPAH. No we're not talking about Sandy and Denio, we're talking about Danny and the Caf� Nazi.  Everyone knows those two lovable scamps who used to parade throughout the commuter cafeteria spreading their wondrous magic to all who crossed their paths. Whether it was Danny hitting people with walls and throwing away people's lunches before they were finished, or whether it was the Caf� Nazi making sure that the tables were well stocked with napkin baskets, they both brought so much joy to the COPAH family. Who could ever forget the twinkle in the Caf� Nazi's eye as she would shriek with anger as we moved the napkin holders to make room to play cards. Ahhh�Good times, good times.
-			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Not all of our memories took place in the cafeteria though. Although it is acknowledged as blasphemy, we must discuss, at least to some degree, some of the classroom stuff that helped shaped our collegiate minds.  There were always good times to be had when it was time to actually go to class (*Note*-It is noted that although there was always a time to go to class, not everyone went to every class.) Whether it was the engineering crew trekking over to Dion to build bridges, study soil samples, or fix computers, or whether it was the Business, Art (Moosh, what were you thinking?), Psychology etc. kids going between Group 1 to Group 6, there were actually some good times in class.  Certain classes in particular ring a few bells, such as the English II class with Madam Wendy Smith. Anyone who was in this class knows about the fun to be had. There was Twan the Chicken Boy who could make you laugh just by looking at him.  There was great literature that has shaped our culture with lines such as "Eat yo' eggs!", and of course there was Prof. Smith herself. Whether she was treating us like third graders as she tried to teach us how to make compound sentences, or whether she was making us go see the worst enactment of Shakespeare ever, she was still a cool lady to have running the show.
-			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;There were other classes as well that many of us took together. Another example was Ethics, which saw Rob Moles get into it verbally almost everyday as the rest of us sat back and laugh. Besides general classes, there were particular professors who brought entertainment to us. Although many of us didn't take Macroeconomics together, many of still had the "Yves" experience. Some words to anyone who may take him in the future or knows someone who will take him, FILL THE ENTIRE TEST WITH WORDS THAT MEAN NOTHING!!! Just trust me on this one.
-			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;So many memories, so little time to remember them and write them down. There were many other instances of educational memories and all of you are encouraged to share them.  This documented history is ongoing and all memories are welcomed additions. Memories are memories, whether they involved the whole group or just a chosen few. Be sure to forward them to either Dave or Jay-Ave so that they can be put up on the site.
-	    	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;United we stand. There is no division so we shall never fall.
-			<br><br><br><br>
-		</td></tr>
-		<tr><td align="left"><a href="{{ url_for('history') }}">Prev Page</a></td>
-			<td align="right"><a href="{{ url_for('history3')}}" align="right">Next&nbsp;Page</a></td></tr>
-		<tr><td><br><br></td></tr>
-</table></table>
-	</table>
+{% extends "base.html" %}
 
-	</td>
-</tr>
+{% block title %}C.O.P.A.H. - History | Chapter II {% endblock %}
 
 
-</body>
-</html>
+{% block content %}
+<div class="container bgwhite">
+    <div class="boxhead">Chapter II</div>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In retrospect, the time that we spent at UMASS will be looked upon with solid
+        smiles. It will often be reminisced about with sentences that begin with the phrase, "Remember that time when?!"
+        and these same conversations will often end with the sentence, "That was awesome!". The truth is that, no matter
+        how much we complained about the ugliness of the campus, the crappy weather that lingered day in and day out, or
+        just about how awful we felt about the school, we truly did have a good time being Corsairs.</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Although we didn't know it at the time, we were truly making memories everyday.
+        They didn't always come in the form of monumentally structured events, such as 45 tournaments or graduation
+        luncheons. For the most part, the majority of COPAH memories came with life's little everyday occurrences, which
+        for some reason seemed to be escalated any time they came in contact with a COPAH member.</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Here are some examples of things that to most members of the UMASS community seem
+        very mundane and boring:</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Chicken tenders, fries, a cheeseburger, and a drink. Nothing too fancy right? These
+        items in and of themselves are nothing more than the basic items that you can find at any local fast food joint.
+        Put them in the hands of the COPAH faithful and they are turned into one of the basic institutions of group.
+        These items combined to form the official "All-American Meal" to be consumed by all during the lunchtime hours.
+        The everyday person may look at this serving of food and see nothing more than a quick source of nourishment,
+        but we as a group associate it with time spent with friends, having a good time.</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;There were, however, other items which were consumed during our respective tenures
+        in Dartmouth, and not all of them were as pleasant as the before mentioned All American Meal. (*This is where we
+        are all supposed to start conjuring up pictures of Phipps in our heads.) Sure there were some other good
+        memories with food, such as eating the "Big Cookies" or those great days when the school would have the 25 cent
+        hot dog fundraiser, but some of the funniest (and grossest) memories involving food (and I use that term very
+        loosely) seem to go hand in hand with Phipps' yearning to consume anything for a dollar or two. Phipps never
+        ceased to amaze us with his antics, whether they were guzzling down a cup of the hot sauce for the chicken
+        tenders, shoving an entire big cookie into his mouth at once, or the pinnacle of his achievements, drinking a
+        cup of... well, Bobby's um dip spit. Let's give a collective round of applause for Phipps and his amazing
+        stomach, for without them, lunch would definitely not have been quite as disgusting or amusing.</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Now with all of this talk about the cafeteria, everyone is thinking about the first
+        couple of COPAH. No we're not talking about Sandy and Denio, we're talking about Danny and the Cafe Nazi.
+        Everyone knows those two lovable scamps who used to parade throughout the commuter cafeteria spreading their
+        wondrous magic to all who crossed their paths. Whether it was Danny hitting people with walls and throwing away
+        people's lunches before they were finished, or whether it was the Cafe Nazi making sure that the tables were
+        well stocked with napkin baskets, they both brought so much joy to the COPAH family. Who could ever forget the
+        twinkle in the Cafe Nazi's eye as she would shriek with anger as we moved the napkin holders to make room to
+        play cards. Ahhh, Good times, good times.</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Not all of our memories took place in the cafeteria though. Although it is
+        acknowledged as blasphemy, we must discuss, at least to some degree, some of the classroom stuff that helped
+        shaped our collegiate minds. There were always good times to be had when it was time to actually go to class
+        (*Note*-It is noted that although there was always a time to go to class, not everyone went to every class.)
+        Whether it was the engineering crew trekking over to Dion to build bridges, study soil samples, or fix
+        computers, or whether it was the Business, Art (Moosh, what were you thinking?), Psychology etc. kids going
+        between Group 1 to Group 6, there were actually some good times in class. Certain classes in particular ring a
+        few bells, such as the English II class with Madam Wendy Smith. Anyone who was in this class knows about the fun
+        to be had. There was Twan the Chicken Boy who could make you laugh just by looking at him. There was great
+        literature that has shaped our culture with lines such as "Eat yo' eggs!", and of course there was Prof. Smith
+        herself. Whether she was treating us like third graders as she tried to teach us how to make compound sentences,
+        or whether she was making us go see the worst enactment of Shakespeare ever, she was still a cool lady to have
+        running the show.</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;There were other classes as well that many of us took together. Another example was
+        Ethics, which saw Rob Moles get into it verbally almost everyday as the rest of us sat back and laugh. Besides
+        general classes, there were particular professors who brought entertainment to us. Although many of us didn't
+        take Macroeconomics together, many of still had the "Yves" experience. Some words to anyone who may take him in
+        the future or knows someone who will take him, FILL THE ENTIRE TEST WITH WORDS THAT MEAN NOTHING!!! Just trust
+        me on this one.</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;So many memories, so little time to remember them and write them down. There were
+        many other instances of educational memories and all of you are encouraged to share them. This documented
+        history is ongoing and all memories are welcomed additions. Memories are memories, whether they involved the
+        whole group or just a chosen few. Be sure to forward them to either Dave or Jay-Ave so that they can be put up
+        on the site.</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;United we stand. There is no division so we shall never fall.</p>
+    <a href="{{ url_for('history') }}">Prev Page</a>
+    <a href="{{ url_for('history3')}}">Next&nbsp;Page</a>
+
+</div>
+{% endblock %}

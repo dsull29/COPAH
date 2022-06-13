@@ -1,45 +1,23 @@
-<html>
-<head>
-    <title>C.O.P.A.H. People</title>
+{% extends "base.html" %}
 
-    {% include "header.html" %}
-    {% include "side.html" %}
-
-    <td align="center" class=main valign="top" width="62%">
-        <table cellpadding="0" cellspacing="0" width="90%">
-            <tr>
-                <td class=title>People</td>
-            </tr>
-            <!-- <tr><td class=date>Last Updated: May 31st, 2002 | Visitor <%=session("counter")%></td></tr>-->
-        </table>
-        <table bgcolor="#FFFFFF" cellpadding="2" cellspacing="3" width="96%">
+{% block title %}C.O.P.A.H. | People {% endblock %}
 
 
-            <tr>
-                <td class=boxhead colspan="4">Members</td>
-            </tr>
-            <tr>
-            <tr>
-                <td colspan="4">The original members, the late comers to UMass Dartmouth, and the good friends who
-                    earned it. These are the illustrious members of C.O.P.A.H. who like it or not will forever be
-                    associated with the rest of us.
-                </td>
-            </tr>
+{% block content %}
+<div class="container bgwhite">
+    <div>People</div>
+
+    <div class="card">
+        <div class="boxhead card-title" colspan="4">Members</div>
+        <p class="card-text">The original members, the late comers to UMass Dartmouth, and the good friends who
+            earned it. These are the illustrious members of C.O.P.A.H. who like it or not will forever be
+            associated with the rest of us.</p>
+        <ul>
             {% for member in members %}
-            <td width="25%">
-                <a href="{{url_for('show_member', AKA=member.AKA) }}">{{ member.AKA }}</a></td>
-            </tr>
-            <tr>
-                {% endfor %}
+            <li><a href="{{url_for('show_member', AKA=member.alias) }}">{{ member.alias }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
 
-
-                </td></tr>
-        </table>
-        </table>
-
-    </td>
-    </tr>
-
-
-    </body>
-</html>
+{% endblock %}

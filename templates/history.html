@@ -1,33 +1,60 @@
-<html>
-<head>
-	<title>C.O.P.A.H. History\Chapter I</title>
-    {% include "header.html" %}
-    {% include "side.html" %}
+{% extends "base.html" %}
 
-<td width="62%" class=main align="center" valign="top">
-   <table width="90%" cellspacing="0" cellpadding="0">
-   	<tr><td class=title>The History of C.O.P.A.H.</td></tr>
-	</table>
-	<table width="96%" bgcolor="#FFFFFF" cellspacing="3" cellpadding="2">
-	<tr><td><br></td></tr>
-    <tr><td class=boxhead>Chapter I</td></tr>
-    <tr><td><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;C.O.P.A.H. may mean different things to different people now, but the origin of this great group came about as a result of one commonly shared feeling, annoyance.  Annoyance with many people, but one person in particular.  Sure there were some people who talked loudly, or some people who just had miserable attitudes.  There were others whose demeanor caused us to cringe while attempting to play cards or eat lunch, but one person personified all of these qualities.  One person�s basic existence made sitting at the tables in the cafeteria a miserable experience (and that�s pretty impressive since the campus of UMASS-Dartmouth is so dreary, with its big gray, cinder block buildings and being covered by dark clouds the majority of the time).
-			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Way back in the early days of freshmen year, we as a group were still forming.  There were factions of Taunton and Fall River guys who began hanging out during lunch and other free periods of time because of the common bonds of an annual summer baseball game.  Eventually the Fall River clan learned of the card game <a href="45.asp" target="_blank">�45�</a> and began playing it daily.  This brought the group together at approximately the same time everyday and laid the foundation for the next four (+ in some cases) years.
-			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As freshmen year progressed and the game of <a href="45.asp" target="_blank">�45�</a> spread to more people, most members of the two groups began to put their late-August hatreds aside for a while and actually became friends.  Then as people began to meet other students at the university, more people began being brought to �our� section of the Commuter Cafeteria. Some of the more memorable people brought in included: the first Norton representative Tom the Bomb (who of course later brought us brother Dave), Jaime (one of Berkeley�s finest), Pete (the pimp daddy of the resident set), and of course C.O.P.A.H.�s namesake, Heather (we will get to that in just a minute).
-			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Everything was going well then.  The beloved game of <a href="45.asp" target="_blank">�45�</a> was flourishing, with as many as five games possibly going at one time.  �All-American meals� were quickly becoming the meal of choice, and more classes were being skipped than ever.  Some of the new people were fitting in perfectly within the confines of the group.  There was, however, something brewing under the surface throughout all of this though.  This �something� occurs anytime you have a large group of people spending a lot of time together, people start getting annoyed with one another and eventually, can not stand certain people anymore.  Some began feeling this backlash more than others did.
-			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As sophomore year began, good ol� Pete began hanging with his resident friends more due to the fact that some within our group began to shut him out.  Other people had went just as quickly as they had came, but one person did not know when her time with us was up.  This person was about to catch the full brunt of all of this animosity against her, and this person was�Ms. Heather.
-			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;While it is unknown who actually came up with the name, the fact is that a group was formed and this group would forever be known as the �Coalition Of People Against Heather� (C.O.P.A.H. for short).  Once this group was formed, (only the closest friends from the large-scale group are considered members), they began pushing Heather and others that they did not like away.  Then after the group was purged of the unworthy and our section of the cafeteria was purified, C.O.P.A.H. was complete.  Only the truest of the true remained and that was what the group was formed for: To be true to one another and to only hang out with people you want to.
-			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Since the formation of C.O.P.A.H. there have been many great moments and new members who have joined the ranks of the C.O.P.A.H. elite.  There was the <a href="45.asp" target="_blank">�45�</a> tournament (although some outsiders were allowed to participate), the eating of the �Big Cookies� (and getting sick afterwards), the day of Candyland, the graduation luncheon, and most recently the partying at the Charlie Horse.  Some of the additions to the original group have included Dave, Tim, and Jason.  For as much fun as these events and people have been, they are only the beginning.  C.O.P.A.H. is about greatness and greatness shall be achieved.  This greatness that is spoken of will be achieved by the means of hanging out and keeping in touch with the other members, proving that we did not push the unworthy away for nothing.
-			<br><br><br><br></td></tr>
-
-<tr><td align="right"><a href="{{ url_for('history2') }}" align="right">Next Page</a></td></tr>
-<tr><td><br><br></td></tr>
-</table></table>
-	</table>
-
-	</td>
-</tr>
+{% block title %}C.O.P.A.H. - History | Chapter I {% endblock %}
 
 
-</body>
-</html>
+{% block content %}
+<div class="container bgwhite">
+    <div class="boxhead">Chapter I</div>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;C.O.P.A.H. may mean different things to different people now, but the origin of
+        this great group came about as a result of one commonly shared feeling, annoyance. Annoyance with many people,
+        but one person in particular. Sure there were some people who talked loudly, or some people who just had
+        miserable attitudes. There were others whose demeanor caused us to cringe while attempting to play cards or eat
+        lunch, but one person personified all of these qualities. One person�s basic existence made sitting at the
+        tables in the cafeteria a miserable experience (and that�s pretty impressive since the campus of UMASS-Dartmouth
+        is so dreary, with its big gray, cinder block buildings and being covered by dark clouds the majority of the
+        time).
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Way back in the early days of freshmen year, we as a group were still forming.
+        There were factions of Taunton and Fall River guys who began hanging out during lunch and other free periods of
+        time because of the common bonds of an annual summer baseball game. Eventually the Fall River clan learned of
+        the card game <a href="{{ url_for('tournaments')}}">'45'</a> and began playing it daily. This brought the group
+        together at approximately the same time everyday and laid the foundation for the next four (+ in some cases)
+        years.
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As freshmen year progressed and the game of 45 spread to more people, most members
+        of the two groups began to put their late-August hatreds aside for a while and
+        actually became friends. Then as people began to meet other students at the university, more people began being
+        brought to 'our' section of the Commuter Cafeteria. Some of the more memorable people brought in included: the
+        first Norton representative Tom the Bomb (who of course later brought us brother Dave), Jaime (one of Berkeley's
+        finest), Pete (the pimp daddy of the resident set), and of course C.O.P.A.H.'s namesake, Heather (we will get to
+        that in just a minute).
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Everything was going well then. The beloved game of 45 was flourishing, with as
+        many as five games possibly going at one time. "All-American meals" were quickly becoming
+        the meal of choice, and more classes were being skipped than ever. Some of the new people were fitting in
+        perfectly within the confines of the group. There was, however, something brewing under the surface throughout
+        all of this though. This "something" occurs anytime you have a large group of people spending a lot of time
+        together, people start getting annoyed with one another and eventually, can not stand certain people anymore.
+        Some began feeling this backlash more than others did.
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As sophomore year began, good ole Pete began hanging with his resident friends more
+        due to the fact that some within our group began to shut him out. Other people had went just as quickly as they
+        had came, but one person did not know when her time with us was up. This person was about to catch the full
+        brunt of all of this animosity against her, and this person was Ms. Heather.
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;While it is unknown who actually came up with the name, the fact is that a group
+        was formed and this group would forever be known as the "Coalition Of People Against Heather" (C.O.P.A.H. for
+        short). Once this group was formed, (only the closest friends from the large-scale group are considered
+        members), they began pushing Heather and others that they did not like away. Then after the group was purged of
+        the unworthy and our section of the cafeteria was purified, C.O.P.A.H. was complete. Only the truest of the true
+        remained and that was what the group was formed for: To be true to one another and to only hang out with people
+        you want to.
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Since the formation of C.O.P.A.H. there have been many great moments and new
+        members who have joined the ranks of the C.O.P.A.H. elite. There was the "45" tournament
+        (although some outsiders were allowed to participate), the eating of the "Big Cookies" (and getting sick
+        afterwards), the day of Candyland, the graduation luncheon, and most recently the partying at the Charlie Horse.
+        Some of the additions to the original group have included Dave, Tim, and Jason. For as much fun as these events
+        and people have been, they are only the beginning. C.O.P.A.H. is about greatness and greatness shall be
+        achieved. This greatness that is spoken of will be achieved by the means of hanging out and keeping in touch
+        with the other members, proving that we did not push the unworthy away for nothing.
+
+    <td align="right"><a align="right" href="{{ url_for('history2') }}">Next Page</a></td>
+
+</div>
+{% endblock %}

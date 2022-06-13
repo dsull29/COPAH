@@ -196,13 +196,13 @@ def logout():
 @app.route('/members')
 def members():
     members = Members.query.order_by(Members.alias).all()
+    print(members)
     return render_template("people.html", members=members)
 
 
 @app.route('/member/<AKA>')
 def show_member(AKA):
-    member = Members.query.get(AKA)
-    print(member)
+    member = Members.query.filter_by(alias=AKA).first()
     return render_template("member_profile.html", member=member)
 
 
