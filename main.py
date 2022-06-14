@@ -150,7 +150,7 @@ class Event(db.Model):
     body = db.Column(db.Text)
 
 
-db.create_all()
+# db.create_all()
 
 
 @app.route('/')
