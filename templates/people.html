@@ -4,20 +4,23 @@
 
 
 {% block content %}
-<div class="container bgwhite">
-    <div>People</div>
+<div class="container-fluid bgwhite">
+    <h1>People</h1>
 
-    <div class="card">
-        <div class="boxhead card-title" colspan="4">Members</div>
-        <p class="card-text">The original members, the late comers to UMass Dartmouth, and the good friends who
-            earned it. These are the illustrious members of C.O.P.A.H. who like it or not will forever be
-            associated with the rest of us.</p>
-        <ul>
-            {% for member in members %}
-            <li><a href="{{url_for('show_member', AKA=member.alias) }}">{{ member.alias }}</a></li>
-            {% endfor %}
-        </ul>
+    <h3 class="boxhead">Members</h3>
+    <p class="lead">The original members, the late comers to UMass Dartmouth, and the good friends who
+        earned it. These are the illustrious members of C.O.P.A.H. who like it or not will forever be
+        associated with the rest of us.</p>
+
+    <div class="row">
+        {% for member in members %}
+        <div class="col-sm-2 text-center">
+            <div class="card py-4 m-3"><a href="{{url_for('show_member', AKA=member.alias) }}">{{ member.alias }}</a>
+            </div>
+        </div>
+        {% endfor %}
     </div>
 </div>
 
+{% include 'footer.html' %}
 {% endblock %}

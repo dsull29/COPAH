@@ -4,14 +4,18 @@
 
 
 {% block content %}
-<div class="container bgwhite">
-    <div class="boxhead">Chapter I</div>
+<div class="container-fluid bgwhite">
+    <h1>History</h1>
+
+    <h3 class="boxhead">Chapter {{ chapter }}</h3>
+    {% include 'history_nav.html' %}
+    {% if chapter == 1 %}
     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;C.O.P.A.H. may mean different things to different people now, but the origin of
         this great group came about as a result of one commonly shared feeling, annoyance. Annoyance with many people,
         but one person in particular. Sure there were some people who talked loudly, or some people who just had
         miserable attitudes. There were others whose demeanor caused us to cringe while attempting to play cards or eat
-        lunch, but one person personified all of these qualities. One person�s basic existence made sitting at the
-        tables in the cafeteria a miserable experience (and that�s pretty impressive since the campus of UMASS-Dartmouth
+        lunch, but one person personified all of these qualities. One person's basic existence made sitting at the
+        tables in the cafeteria a miserable experience (and that's pretty impressive since the campus of UMASS-Dartmouth
         is so dreary, with its big gray, cinder block buildings and being covered by dark clouds the majority of the
         time).
     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Way back in the early days of freshmen year, we as a group were still forming.
@@ -37,14 +41,14 @@
     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As sophomore year began, good ole Pete began hanging with his resident friends more
         due to the fact that some within our group began to shut him out. Other people had went just as quickly as they
         had came, but one person did not know when her time with us was up. This person was about to catch the full
-        brunt of all of this animosity against her, and this person was Ms. Heather.
+        brunt of all of this animosity against her, and this person was Ms. Heather.</p>
     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;While it is unknown who actually came up with the name, the fact is that a group
         was formed and this group would forever be known as the "Coalition Of People Against Heather" (C.O.P.A.H. for
         short). Once this group was formed, (only the closest friends from the large-scale group are considered
         members), they began pushing Heather and others that they did not like away. Then after the group was purged of
         the unworthy and our section of the cafeteria was purified, C.O.P.A.H. was complete. Only the truest of the true
         remained and that was what the group was formed for: To be true to one another and to only hang out with people
-        you want to.
+        you want to.</p>
     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Since the formation of C.O.P.A.H. there have been many great moments and new
         members who have joined the ranks of the C.O.P.A.H. elite. There was the "45" tournament
         (although some outsiders were allowed to participate), the eating of the "Big Cookies" (and getting sick
@@ -52,9 +56,140 @@
         Some of the additions to the original group have included Dave, Tim, and Jason. For as much fun as these events
         and people have been, they are only the beginning. C.O.P.A.H. is about greatness and greatness shall be
         achieved. This greatness that is spoken of will be achieved by the means of hanging out and keeping in touch
-        with the other members, proving that we did not push the unworthy away for nothing.
+        with the other members, proving that we did not push the unworthy away for nothing.</p>
 
-    <td align="right"><a align="right" href="{{ url_for('history2') }}">Next Page</a></td>
+    {% elif chapter == 2: %}
+
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In retrospect, the time that we spent at UMASS will be looked upon with solid
+        smiles. It will often be reminisced about with sentences that begin with the phrase, "Remember that time when?!"
+        and these same conversations will often end with the sentence, "That was awesome!". The truth is that, no matter
+        how much we complained about the ugliness of the campus, the crappy weather that lingered day in and day out, or
+        just about how awful we felt about the school, we truly did have a good time being Corsairs.</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Although we didn't know it at the time, we were truly making memories everyday.
+        They didn't always come in the form of monumentally structured events, such as 45 tournaments or graduation
+        luncheons. For the most part, the majority of COPAH memories came with life's little everyday occurrences, which
+        for some reason seemed to be escalated any time they came in contact with a COPAH member.</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Here are some examples of things that to most members of the UMASS community seem
+        very mundane and boring:</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Chicken tenders, fries, a cheeseburger, and a drink. Nothing too fancy right? These
+        items in and of themselves are nothing more than the basic items that you can find at any local fast food joint.
+        Put them in the hands of the COPAH faithful and they are turned into one of the basic institutions of group.
+        These items combined to form the official "All-American Meal" to be consumed by all during the lunchtime hours.
+        The everyday person may look at this serving of food and see nothing more than a quick source of nourishment,
+        but we as a group associate it with time spent with friends, having a good time.</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;There were, however, other items which were consumed during our respective tenures
+        in Dartmouth, and not all of them were as pleasant as the before mentioned All American Meal. (*This is where we
+        are all supposed to start conjuring up pictures of Phipps in our heads.) Sure there were some other good
+        memories with food, such as eating the "Big Cookies" or those great days when the school would have the 25 cent
+        hot dog fundraiser, but some of the funniest (and grossest) memories involving food (and I use that term very
+        loosely) seem to go hand in hand with Phipps' yearning to consume anything for a dollar or two. Phipps never
+        ceased to amaze us with his antics, whether they were guzzling down a cup of the hot sauce for the chicken
+        tenders, shoving an entire big cookie into his mouth at once, or the pinnacle of his achievements, drinking a
+        cup of... well, Bobby's um dip spit. Let's give a collective round of applause for Phipps and his amazing
+        stomach, for without them, lunch would definitely not have been quite as disgusting or amusing.</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Now with all of this talk about the cafeteria, everyone is thinking about the first
+        couple of COPAH. No we're not talking about Sandy and Denio, we're talking about Danny and the Cafe Nazi.
+        Everyone knows those two lovable scamps who used to parade throughout the commuter cafeteria spreading their
+        wondrous magic to all who crossed their paths. Whether it was Danny hitting people with walls and throwing away
+        people's lunches before they were finished, or whether it was the Cafe Nazi making sure that the tables were
+        well stocked with napkin baskets, they both brought so much joy to the COPAH family. Who could ever forget the
+        twinkle in the Cafe Nazi's eye as she would shriek with anger as we moved the napkin holders to make room to
+        play cards. Ahhh, Good times, good times.</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Not all of our memories took place in the cafeteria though. Although it is
+        acknowledged as blasphemy, we must discuss, at least to some degree, some of the classroom stuff that helped
+        shaped our collegiate minds. There were always good times to be had when it was time to actually go to class
+        (*Note*-It is noted that although there was always a time to go to class, not everyone went to every class.)
+        Whether it was the engineering crew trekking over to Dion to build bridges, study soil samples, or fix
+        computers, or whether it was the Business, Art (Moosh, what were you thinking?), Psychology etc. kids going
+        between Group 1 to Group 6, there were actually some good times in class. Certain classes in particular ring a
+        few bells, such as the English II class with Madam Wendy Smith. Anyone who was in this class knows about the fun
+        to be had. There was Twan the Chicken Boy who could make you laugh just by looking at him. There was great
+        literature that has shaped our culture with lines such as "Eat yo' eggs!", and of course there was Prof. Smith
+        herself. Whether she was treating us like third graders as she tried to teach us how to make compound sentences,
+        or whether she was making us go see the worst enactment of Shakespeare ever, she was still a cool lady to have
+        running the show.</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;There were other classes as well that many of us took together. Another example was
+        Ethics, which saw Rob Moles get into it verbally almost everyday as the rest of us sat back and laugh. Besides
+        general classes, there were particular professors who brought entertainment to us. Although many of us didn't
+        take Macroeconomics together, many of still had the "Yves" experience. Some words to anyone who may take him in
+        the future or knows someone who will take him, FILL THE ENTIRE TEST WITH WORDS THAT MEAN NOTHING!!! Just trust
+        me on this one.</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;So many memories, so little time to remember them and write them down. There were
+        many other instances of educational memories and all of you are encouraged to share them. This documented
+        history is ongoing and all memories are welcomed additions. Memories are memories, whether they involved the
+        whole group or just a chosen few. Be sure to forward them to either Dave or Jay-Ave so that they can be put up
+        on the site.</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;United we stand. There is no division so we shall never fall.</p>
+
+    {% elif chapter == 3 %}
+
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;365 Days of a web site. It started out almost as a joke. Jay-Ave suggested that
+        someone should get working on it, and a week later Dave emailed him the address. In the beginning, the COPAH
+        site was just going to be used as a reference tool to get everybody's email addresses and resumes together in
+        order to help each other as we graduated (or attempted to). This got off to a slow start though, and the resume
+        application never really took shape, evidenced by the fact that to this very day the only two resumes on the
+        site are Dave's and Scrib's.</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Once we realized that the email address database could be better taken advantage
+        of, the object of the site quickly changed as it became used to help organize events and to keep everyone
+        informed of what was going on in the lives of the rest of the COPAH family. As we found, though, nothing can
+        organize Phipps, as it took about 5 months to get the Fall River faction (Moosh, Jason, Tim, and Adam) on the
+        same page in order to get the Second 45 Tournament together on June 21st 2001 (The first having taken place at
+        UMASS a few years earlier with Scrib and Tim beating the odds and coming out on top). Not only did this second
+        tournament bring us another member of the COPAH extended family (Keith), but it also brought us the home of many
+        future events, the COPAH Beach House.</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The turn out for this second tournament was as good as expected seeing as we hadn't
+        heard from anyone in the Taunton faction at this point. A definite bonus of this tournament was that it brought
+        us the return of the Captain, Jesse Morgan. With a rather confusing format Phipps and Keith managed to win over
+        Tom and Ave in a game that wasn't even supposed to really happen (Tom felt that winning by point differential
+        was un-manly and in the process ending up costing his team $200). In a fashion that is only his, Bobby Guay
+        called a week later and asked when the tournament was going to happen. Classic Guay. Simply classic.</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A few weeks after this tournament, Joe signed up on the site and with him came the
+        rest of the Taunton crew (including Billy, Kim, Scrib, Rob, and Becky), which only meant bigger and better
+        things.</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Membership on the site was up to 20 when we kicked off C.O.P.A.H. Fantasy Football
+        in August 2001. Things were going strong and the family was on the verge of expanding even more. The draft was
+        held at the Charlie Horse in Bridgewater and went pretty well despite an insane drafting order that proved to
+        spread out the talent fairly well. This was evident in week 15 when there were 7 teams out of 10 that had a shot
+        of making the play-offs. Tom and Seth had been running 1 & 2 all season till an end of season collapse gave both
+        of them early play-off exits. This left Scribner and Jay-Ave to battle it out for all the marbles: the 2001
+        C.O.P.A.H. Bowl Championship, bragging rights, and least of all the money. Jay-Ave proved his Old Dirty Bastards
+        were no joke by rattling off the highest point total of the season, 196, while Scrib's Roodeepoo Crew only
+        mustered up 104.</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Since the season went so well, plans are currently underway for expansion for next
+        season (possible coaches include are looking to include Josh, Jamie, and AJ), and with the success of Fantasy
+        Football we branched out into Fantasy Hockey and Basketball and I think we're all looking foward to Baseball as
+        hockey and basketball have proved to be unentertaining for fantasy sports.</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;While this was going on throughout the fall and membership achieved it's all time
+        peak, the COPAH family was growing closer and closer, and more events started to come up. Karaoke had come into
+        play and quickly became a family favorite, and another tournament was held. The Cathay Pearl, home of karaoke
+        and performance center for the COPAH Chorus, has proved to be the staging ground for some of Southern New
+        England's worst vocal talents, but hey the alcohol is cheap and the laughs couldn't come any easier. Typically,
+        trips to karaoke have been made before Monday holidays to give us all a chance to rest up for the work week. The
+        highlights and lowlights are almost too many to mention and besides you really have to see it to believe it.
+        Just as a hint as to what goes on there, Seth and Denio have both sang on stage and danced the night away during
+        some of our times there. If that's not the highpoint of an evening, then I don't know what is.</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The third 45 Tournament was held on October 27th, 2001 with a full slate of 20
+        players, including one soccer playing pirate. The format was simpler, the stakes were higher, and the pain of
+        losing couldn't have been any worse as Phipps and Keith somehow repeated as champions over Seth and a near death
+        Billy. Phipps doesn't even remember throwing the last card, and we should all be ashamed of ourselves for
+        letting the greatest tragedy in the history of cards take place.</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;So with all of our additions (AJ, Chief, Sharon) and with all that has occurred in
+        the past year, some might be asking, "What's in store for the next year?" Certainly more karaoke, more fantasy
+        sports, and more 45 tournaments, but there are also some new things on the horizon. A pitch n putt tournament is
+        being talked about, a Hawaiian luau this summer, maybe even a Vegas vacation, and lets not forget Denio and
+        Sandy's wedding (The idea of a C.O.P.A.H. bachelor party is flat out frightening).</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;With all of these events and future occurrences ahead, the main goal of COPAH will
+        continue to be achieved and nurtured, and that goal is simple: Keep the group together and have a damn good time
+        while we do it!!!!</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;And whatever is done to preserve COPAH, it's members, and its ideals, it will all
+        be documented right here at good old www.dsull29.com/copah/</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thanks for a great year everyone, and remember, the best is yet to come.</p>
+
+    {% endif %}
+
+    {% include 'history_nav.html' %}
 
 </div>
+
+{% include 'footer.html' %}
 {% endblock %}

@@ -1,0 +1,22 @@
+<div class="text-right">
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item {% if pages[0] == 0: %} disabled {% endif %}">
+                <a class="page-link" href="{{ url_for('history', chapter=pages[0]) }}">Previous</a>
+            </li>
+            <li class="page-item {% if pages[1] == 1: %} disabled {% endif %}">
+                <a class="page-link" href="{{ url_for('history', chapter=1) }}">1</a>
+            </li>
+            <li class="page-item {% if pages[1] == 2: %} disabled {% endif %}">
+                <a class="page-link" href="{{ url_for('history', chapter=2) }}">2</a>
+            </li>
+            <li class="page-item {% if pages[1] == 3: %} disabled {% endif %}">
+                <a class="page-link" href="{{ url_for('history', chapter=3) }}">3</a>
+            </li>
+            <li class="page-item {% if pages[2] == 0: %} disabled {% endif %}">
+                <a class="page-link" href="{{ url_for('history', chapter=pages[2]) }}">Next</a>
+            </li>
+        </ul>
+    </nav>
+
+</div>

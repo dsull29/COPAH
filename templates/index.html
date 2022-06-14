@@ -5,52 +5,56 @@
 
 {% block content %}
 
-<div class="container">
+<div class="container-fluid bgwhite">
 
-    <div class="row">
 
-        <div class="col">
-            <div class="card">
-                <div class="card-body">
-                    <h3 class="card-title">Welcome to C.O.P.A.H.</h3>
-                    <p class="card-text">We are a group of friends who are current and
-                        former "students" from UMASS-Dartmouth that have managed to stay in touch over the
-                        years through the bonds of cards, parties, sports, and karaoke. This site is a guide
-                        to all things C.O.P.A.H., so be sure to look around and check in often as we are
-                        constantly expanding. </p>
-                    <p class="card-text">Thanks for stopping by.</p>
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="card-title">Welcome to C.O.P.A.H.</h1>
+                <p class="card-text">We are a group of friends who are current and
+                    former "students" from UMASS-Dartmouth that have managed to stay in touch over the
+                    years through the bonds of cards, parties, sports, and karaoke. This site is a guide
+                    to all things C.O.P.A.H., so be sure to look around and check in often as we are
+                    constantly expanding. </p>
+                <p class="card-text">Thanks for stopping by.</p>
+            </div>
+        </div>
+        <hr>
+        <h2 class="boxhead">News</h2>
+
+        {% for item in news %}
+        <div class="card p-4 my-2">
+            <div class="row">
+                <div class="col-sm-4">
+                    <h3 class="card-title"><b>{{ item.title }}</b></h3></div>
+                <div class="col-sm-2 text-right">
+                    <div class="card-subtitle">{{ item.date[:8] }} ~ {{ item.alias }}</div>
                 </div>
             </div>
+            <p class="card-text">{{ item.news|safe }}</p>
         </div>
-        <div class="col">
-            <div class="card">
-                <div class="card-body">
-                    <img alt="{{ photo.Comment }}" class="card-img-top"
-                         src="{{ url_for('static', filename=photo_filename) }}">
 
-                </div>
+        {% endfor %}
+        <div class="text-center"><a href="{{ url_for('archives') }}" target="_blank">Archives</a></div>
+
+
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <img alt="{{ photo.comment }}" class="card-img-top"
+                     src="{{ url_for('static', filename=photo_filename) }}">
             </div>
+            {% if photo.comment: %}
+            <div class="card-footer text-center">
+                <p>{{ photo.comment }}</p>
+            </div>
+            {% endif %}
         </div>
+
     </div>
 
-
-    <div class="row">
-        <div class="col-xl">
-            <h2 class="boxhead">News</h2>
-
-            {% for item in news %}
-            <div class="card">
-                <div class="bigtd"><b>{{ item.title }}</b></div>
-
-                <div>{{ item.date[:8] }} ~ {{ item.alias }}</div>
-                <div class="normtd">{{ item.news|safe }}</div>
-            </div>
-            {% endfor %}
-
-            <div><a href="{{ url_for('archives') }}" target="_blank">Archives</a></div>
-
-        </div>
-    </div>
 </div>
-
+{% include 'footer.html' %}
 {% endblock %}

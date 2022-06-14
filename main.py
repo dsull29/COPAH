@@ -156,7 +156,7 @@ class Event(db.Model):
 @app.route('/')
 def home():
     news = News.query.order_by(News.id.desc()).all()[:5]
-    random_picture = choice(Pictures.query.all())
+    random_picture = choice(Pictures.query.filter_by(rating=0).all())
     photofilename = "graphics/" + random_picture.event + "/" + random_picture.file
     return render_template("index.html", news=news, photo=random_picture, photo_filename=photofilename,
                            current_user=current_user)
@@ -195,12 +195,12 @@ def logout():
 
 @app.route('/members')
 def members():
-    members = Members.query.order_by(Members.alias).all()
-    print(members)
+    members = Members.query.filter_by(friend=0).order_by(Members.alias).all()
     return render_template("people.html", members=members)
 
 
 @app.route('/member/<AKA>')
+@login_required
 def show_member(AKA):
     member = Members.query.filter_by(alias=AKA).first()
     return render_template("member_profile.html", member=member)
@@ -232,9 +232,11 @@ def add_event():
 
 @app.route('/view_event/<int:event_id>')
 def view_event(event_id):
+    print(event_id)
     event = Event.query.get(event_id)
     pics = Pictures.query.filter_by(event=event.picture_key).all()
     print(pics)
+    print(event)
     return render_template("view_event.html", event=event, pics=pics)
 
 
@@ -256,19 +258,16 @@ def news_post():
     return render_template("newspost.html", form=form)
 
 
-@app.route('/history')
-def history():
-    return render_template("history.html")
-
-
-@app.route('/history2')
-def history2():
-    return render_template("history2.html")
-
-
-@app.route('/history3')
-def history3():
-    return render_template("history3.html")
+@app.route('/history/<int:chapter>')
+def history(chapter):
+    if chapter == 1:
+        pages = [0, 1, 2]
+    elif chapter == 2:
+        pages = [1, 2, 3]
+    elif chapter == 3:
+        pages = [2, 3, 0]
+    print(chapter, pages)
+    return render_template("history.html", chapter=chapter, pages=pages)
 
 
 @app.route('/archives')
@@ -386,17 +385,17 @@ def karaoke():
 
 @app.route('/luau')
 def luau():
-    return render_template("luau.html")
+    return redirect(url_for("view_event", event_id=18))
 
 
 @app.route('/fiesta')
 def fiesta():
-    return render_template("fiesta.html")
+    return redirect(url_for("view_event", event_id=21))
 
 
 @app.route('/mardigras')
 def mardigras():
-    return render_template("mardigras.html")
+    return redirect(url_for("view_event", event_id=20))
 
 
 @app.route('/fiestalist')
