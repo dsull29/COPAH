@@ -1,15 +1,19 @@
+import requests as requests
 from flask import Flask, render_template, redirect, url_for, flash, abort, request
 from flask_bootstrap import Bootstrap
 from flask_ckeditor import CKEditor
 from datetime import date
+from functools import wraps
 from flask_sqlalchemy import SQLAlchemy
+from werkzeug.security import generate_password_hash, check_password_hash
 from sqlalchemy.orm import relationship
 from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user
 from random import choice
 import os
-from forms import CreateNewsPostForm, CreateEventForm, LoginForm
-
-# import requests
+from forms import CreateNewsPostForm, CreateEventForm, LoginForm, FflSeasonUploadForm
+import pprint
+import csv
+from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
@@ -150,7 +154,35 @@ class Event(db.Model):
     body = db.Column(db.Text)
 
 
+class FflSeason(db.Model):
+    __tablename__ = "ffl_seasons"
+    id = db.Column(db.Integer, primary_key=True)
+    year = db.Colum(db.Integer, nullable=False)
+    owner = db.Column(db.String(20), nullable=False)
+    team = db.Column(db.String(30), nullable=False)
+    wins = db.Column(db.Integer, nullable=False)
+    losses = db.Column(db.Integer, nullable=False)
+    ties = db.Column(db.Integer, nullable=False)
+    win_percentage = db.Column(db.Float, nullable=False)
+    points_for = db.Column(db.Float, nullable=False)
+    points_against = db.Column(db.Float, nullable=False)
+    differential = db.Column(db.Float, nullable=False)
+    moves = db.Column(db.Integer, nullable=False)
+    playoffs = db.Column(db.Boolean)
+    runner_up = db.Column(db.Boolean)
+    champion = db.Column(db.Boolean)
+
+
 # db.create_all()
+
+def admin_only(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if current_user.alias != "Dave":
+            return abort(403)
+        return f(*args, **kwargs)
+
+    return decorated_function
 
 
 @app.route('/')
@@ -228,6 +260,39 @@ def add_event():
         db.session.commit()
         return redirect(url_for('home'))
     return render_template("add_event.html", form=form)
+
+
+@app.route('/football_upload', methods=["GET", "POST"])
+@admin_only
+def football_upload():
+    # ''' used to upload files'''
+    form = FflSeasonUploadForm()
+    form.year.choices = list(range(2001, int(date.today().year) + 1))
+    # TODO add a check to weed out entries that have already been uploaded
+    if form.validate_on_submit():
+        uploaded_file = form.file.data
+
+        if uploaded_file.filename:
+            file_path = os.path.join("uploads/ffl_seasons", uploaded_file.filename)
+            uploaded_file.save(file_path)
+
+            csv_data = open(file_path)
+            csvreader = csv.reader(csv_data)
+            next(csvreader)
+
+            rows = []
+            for row in csvreader:
+                new_ffl_season = (
+
+                )
+
+                rows.append(row)
+            print(rows)
+
+        # db.session.add(new_post)
+        # db.session.commit()
+        return redirect(url_for('home'))
+    return render_template('football_upload.html', form=form)
 
 
 @app.route('/view_event/<int:event_id>')

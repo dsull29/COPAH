@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, PasswordField, SelectField
+from wtforms import StringField, SubmitField, PasswordField, SelectField, FileField
 from wtforms.validators import DataRequired, URL
 from flask_ckeditor import CKEditorField
 
@@ -23,4 +23,10 @@ class CreateEventForm(FlaskForm, list):
     picture_key = SelectField("Picture Gallery", choices=list)
     thumbnail = StringField("Thumbnail")
     body = CKEditorField("Body")
+    submit = SubmitField("Submit")
+
+
+class FflSeasonUploadForm(FlaskForm):
+    year = SelectField("Year", choices=list)
+    file = FileField("Season File")
     submit = SubmitField("Submit")
