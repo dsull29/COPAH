@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid bgwhite">
+    <div class="row justify-content-md-center m-4">
+        <div class="col-md">
+            <div class="card">
+                <h1 class="card-title boxhead">{{ owner.name }} </h1>
+                <div class="card-body">
+                    <h3>Seasons: {{ total.years }}</h3>
+                    <h3>Record: {{ total.wins }}-{{ total.losses }}-{{ total.ties }}</h3>
+                    <h3>Winning Pct: {{ total.win_percentage }}</h3>
+                    <h3>Made Playoffs: {{ total.playoffs }}</h3>
+                    <h3>Made Finals: {{ total.runner_up }}</h3>
+                    <h3>Champion: {{ total.champion }}</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-mx">
+            <table class="table table-striped">
+                <thead class="table-dark">
+                <tr>
+                    <th scope="col">Season</th>
+                    <th scope="col">Team</th>
+                    <th scope="col">W</th>
+                    <th scope="col">L</th>
+                    <th scope="col">T</th>
+                    <th scope="col">Win %</th>
+                    <th scope="col">Pts For</th>
+                    <th scope="col">Pts Vs</th>
+                    <th scope="col">Pts Diff</th>
+                    <th scope="col">Moves</th>
+                    <th scope="col">Playoffs</th>
+                    <th scope="col">Runner-Up</th>
+                    <th scope="col">Champion</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for season in owner.seasons: %}
+
+                <tr>
+                    <th scope="row">{{ season.year }}</th>
+                    <td>{{ season.team}}</td>
+                    <td>{{ season.wins }}</td>
+                    <td>{{ season.losses }}</td>
+                    <td>{{season.ties}}</td>
+                    <td>{{ season.win_percentage }}</td>
+                    <td>{{ season.points_for }}</td>
+                    <td>{{ season.points_against }}</td>
+                    <td>{{ season.differential }}</td>
+                    <td>{{ season.moves }}</td>
+                    <td>{{ season.playoffs }}</td>
+                    <td>{{ season.runner_up }}</td>
+                    <td>{{ season.champion }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% include 'footer.html' %}
+
+{% endblock %}

@@ -154,11 +154,19 @@ class Event(db.Model):
     body = db.Column(db.Text)
 
 
+class FflOwner(db.Model):
+    __tablename__ = "ffl_owners"
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(20), unique=True, nullable=False)
+    seasons = relationship("FflSeason", back_populates="owner")
+
+
 class FflSeason(db.Model):
     __tablename__ = "ffl_seasons"
     id = db.Column(db.Integer, primary_key=True)
-    year = db.Colum(db.Integer, nullable=False)
-    owner = db.Column(db.String(20), nullable=False)
+    year = db.Column(db.Integer, nullable=False)
+    owner_id = db.Column(db.Integer, db.ForeignKey("ffl_owners.id"))
+    owner = relationship("FflOwner", back_populates="seasons")
     team = db.Column(db.String(30), nullable=False)
     wins = db.Column(db.Integer, nullable=False)
     losses = db.Column(db.Integer, nullable=False)
@@ -173,7 +181,8 @@ class FflSeason(db.Model):
     champion = db.Column(db.Boolean)
 
 
-# db.create_all()
+db.create_all()
+
 
 def admin_only(f):
     @wraps(f)
@@ -282,26 +291,98 @@ def football_upload():
 
             rows = []
             for row in csvreader:
-                new_ffl_season = (
+                playoffs = False
+                runner_up = False
+                champion = False
+
+                if row[10]:
+                    playoffs = True
+                    if row[10] == "C":
+                        champion = True
+                    elif row[10] == "R":
+                        runner_up = True
+
+                owner = FflOwner.query.filter_by(name=row[0]).first()
+
+                if not owner:
+                    new_owner = FflOwner(
+                        name=row[0]
+                    )
+                    db.session.add(new_owner)
+                    db.session.commit()
+                    owner = FflOwner.query.filter_by(name=row[0]).first()
+
+                new_ffl_season = FflSeason(
+                    year=form.year.data,
+                    owner=owner,
+                    owner_id=owner.id,
+                    team=row[1],
+                    wins=row[2],
+                    losses=row[3],
+                    ties=row[4],
+                    win_percentage=row[5],
+                    points_for=row[6],
+                    points_against=row[7],
+                    differential=row[8],
+                    moves=row[9],
+                    playoffs=playoffs,
+                    runner_up=runner_up,
+                    champion=champion
 
                 )
+                db.session.add(new_ffl_season)
+                db.session.commit()
 
-                rows.append(row)
-            print(rows)
-
-        # db.session.add(new_post)
-        # db.session.commit()
         return redirect(url_for('home'))
     return render_template('football_upload.html', form=form)
 
 
+@app.route('/football_owner/<int:owner_id>')
+def football_owner(owner_id):
+    owner = FflOwner.query.get(owner_id)
+    total = {"years": 0,
+             "wins": 0,
+             "losses": 0,
+             "ties": 0,
+             "points_for": 0,
+             "points_against": 0,
+             "moves": 0,
+             "playoffs": 0,
+             "runner_up": 0,
+             "champion": 0
+             }
+
+    for season in owner.seasons:
+        total["years"] += 1
+        total["wins"] += season.wins
+        total["losses"] += season.losses
+        total["ties"] += season.ties
+        total["points_for"] += season.points_for
+        total["points_against"] += season.points_against
+        total["moves"] += season.moves
+
+        if season.champion:
+            total["champion"] += 1
+
+        if season.playoffs:
+            total["playoffs"] += 1
+
+        if season.runner_up:
+            total["runner_up"] += 1
+
+    total["points_for"] = round(total["points_for"], 2)
+    total["points_against"] = round(total["points_against"], 2)
+    total["differential"] = round(total["points_for"] - total["points_against"], 2)
+
+    total["win_percentage"] = round(total["wins"] / (total["wins"] + total["losses"] + total["ties"]), 3)
+
+    return render_template("ffl_owner.html", owner=owner, total=total)
+
+
 @app.route('/view_event/<int:event_id>')
 def view_event(event_id):
-    print(event_id)
     event = Event.query.get(event_id)
     pics = Pictures.query.filter_by(event=event.picture_key).all()
-    print(pics)
-    print(event)
     return render_template("view_event.html", event=event, pics=pics)
 
 
