@@ -14,6 +14,7 @@ from forms import CreateNewsPostForm, CreateEventForm, LoginForm, FflSeasonUploa
 import pprint
 import csv
 from werkzeug.utils import secure_filename
+import pandas
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
@@ -158,6 +159,7 @@ class FflOwner(db.Model):
     __tablename__ = "ffl_owners"
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(20), unique=True, nullable=False)
+    active = db.Column(db.Boolean)
     seasons = relationship("FflSeason", back_populates="owner")
 
 
@@ -377,6 +379,20 @@ def football_owner(owner_id):
     total["win_percentage"] = round(total["wins"] / (total["wins"] + total["losses"] + total["ties"]), 3)
 
     return render_template("ffl_owner.html", owner=owner, total=total)
+
+
+@app.route('/football_owners')
+def football_owners():
+    owners = FflOwner.query.filter_by(active=True).order_by(FflOwner.name).all()
+    return render_template("ffl_owners.html", owners=owners)
+
+
+@app.route('/football_totals')
+def football_totals():
+    all_season = FflSeason.query.get_all()
+    new_data = pandas.DataFrame()
+    new_data.read_sql()
+    return render_template("football_totals.html")
 
 
 @app.route('/view_event/<int:event_id>')

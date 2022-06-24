@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid bgwhite">
+    <div class="row justify-content-md-center m-4">
+        <div class="col-mx">
+            <table class="table table-striped">
+                <thead class="table-dark">
+                <tr>
+                    <th scope="col">Owner</th>
+                    <th scope="col">Seasons</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for owner in owners %}
+
+                <tr>
+                    <th scope="row">
+                        <a href="{{ url_for('football_owner', owner_id=owner.id) }}">{{ owner.name }}</a></th>
+                    <td>{{ owner.seasons|length }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% include 'footer.html' %}
+
+{% endblock %}
