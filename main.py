@@ -14,7 +14,7 @@ from forms import CreateNewsPostForm, CreateEventForm, LoginForm, FflSeasonUploa
 import pprint
 import csv
 from werkzeug.utils import secure_filename
-import pandas
+# import pandas
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
@@ -390,8 +390,8 @@ def football_owners():
 @app.route('/football_totals')
 def football_totals():
     all_season = FflSeason.query.get_all()
-    new_data = pandas.DataFrame()
-    new_data.read_sql()
+    # new_data = pandas.DataFrame()
+    # new_data.read_sql()
     return render_template("football_totals.html")
 
 
