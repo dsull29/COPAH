@@ -10,6 +10,8 @@
 					font : 14px Arial, Helvetica, sans-serif;
 				}
 
+
+
                 div {}
 
 				.boxhead {
@@ -18,6 +20,12 @@
 					font-weight : bold;
 					text-indent : 5px;
 
+				}
+
+                .navbar-custom {
+					background-color: #00105F;
+					font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+					color: black;
 				}
 
 				.bgwhite {
